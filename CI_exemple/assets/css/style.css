@@ -1,0 +1,13 @@
+.logo {
+    height: 50px;
+    width: 50px;
+}
+
+.img_list {
+    height: 250px;
+    width: 250px;
+}
+
+.body-size {
+    height: 500px !important;
+}
