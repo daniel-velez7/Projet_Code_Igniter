@@ -1,0 +1,12 @@
+.container {
+    border-radius: 25px 25px 25px 25px;
+    background-color: gray;
+}
+
+.img_edit{
+    width: 50px !important;
+}
+
+.bg-color {
+    background-color: red;
+}

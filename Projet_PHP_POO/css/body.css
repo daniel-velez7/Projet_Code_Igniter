@@ -1,0 +1,33 @@
+.body-setup {
+    width: 90%;
+    margin-top: 70px;
+    background-color: gray;
+    border-radius: 25px 25px 25px 25px;
+}
+
+.body-image {
+    height: 250px;
+}
+
+.body-title {
+    font-family: 'Bowlby One SC', cursive;
+    font-size: 30px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+}
+
+.body-para {
+    font-family: 'Bowlby One SC', cursive;
+    font-size: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.body-button {
+    color: white;
+    background-color: #0594D0;
+    font-family: 'Bowlby One SC', cursive;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
