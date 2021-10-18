@@ -45,7 +45,7 @@
     <nav class="navbar d-flex w-100 flex-row header">
         <div class="d-flex align-items-center">
             <ul class="navbar-nav">
-                <li class="nav-item mx-2"><a href="index.php"><img class="height_max" src="images/Webinfo_logo.png" alt="logo_webinfo"></a></li>
+                <li class="nav-item mx-2"><a href="index.php"><img class="height_max" src="<?= base_url("assets/images/Webinfo_logo.png"); ?>" alt="logo_webinfo"></a></li>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item mx-2"><a class="btn btn-color mx-3" href='index.php'>Acceuil</a></li>
