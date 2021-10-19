@@ -13,10 +13,10 @@
                 connection
             </button>
             <ul class="dropdown-menu absolute" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="connection.php?type_account=stagiaire">Stagiaire</a></li>
-                <li><a class="dropdown-item" href="connection.php?type_account=formateur">Formateur</a></li>
-                <li><a class="dropdown-item" href="connection.php?type_account=intervenant">Intervenant</a></li>
-                <li><a class="dropdown-item" href="connection.php?type_account=administrateur">Administrateur</a></li>
+                <li><a class="dropdown-item" href="<?= site_url("Stagiaire/connection"); ?>">Stagiaire</a></li>
+                <li><a class="dropdown-item" href="<?= site_url("Formateur/connection"); ?>">Formateur</a></li>
+                <li><a class="dropdown-item" href="<?= site_url("Intervenant/connection"); ?>">Intervenant</a></li>
+                <li><a class="dropdown-item" href="<?= site_url("Administrateur/connection"); ?>">Administrateur</a></li>
             </ul>
         </div>
         <div class="dropdown">
@@ -24,9 +24,9 @@
                 inscription
             </button>
             <ul class="dropdown-menu absolute" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="inscription.php?type_account=stagiaire">Stagiaire</a></li>
-                <li><a class="dropdown-item" href="inscription.php?type_account=formateur">Formateur</a></li>
-                <li><a class="dropdown-item" href="inscription.php?type_account=intervenant">Intervenant</a></li>
+                <li><a class="dropdown-item" href="<?= site_url("Stagiaire/inscription"); ?>">Stagiaire</a></li>
+                <li><a class="dropdown-item" href="<?= site_url("Formateur/inscription"); ?>">Formateur</a></li>
+                <li><a class="dropdown-item" href="<?= site_url("Intervenant/inscription"); ?>">Intervenant</a></li>
             </ul>
         </div>
     </ul>

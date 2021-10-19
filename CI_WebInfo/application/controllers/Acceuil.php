@@ -10,8 +10,4 @@ class Acceuil extends CI_Controller {
         $this->load->view('body/body_default');
         $this->load->view('body/footer');
     }
-
-    
-
-
 }

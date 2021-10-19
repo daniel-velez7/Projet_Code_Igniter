@@ -18,27 +18,29 @@ class Stagiaire extends CI_Controller {
     public function inscription()
     {
         $data['pageName'] = 'inscription';
-        $this->load->view('header_default', $data);
+        $this->load->view('body/header_default', $data);
 
         if ($this->input->post()) {
             $post = $this->input->post();
-            unset($post['btn_inscription']);
 
+            $this->form_validation->set_rules('prenom', 'firstname', 'required|alpha');
+            $this->form_validation->set_rules('nom', 'lastname', 'required|alpha');
+            $this->form_validation->set_rules('telephone', 'telephone', 'required|numeric');
             $this->form_validation->set_rules('email', 'email', 'required|valid_email');
-            $this->form_validation->set_rules('password', 'password', 'required|alpha_numeric');
+            $this->form_validation->set_rules('mdp', 'password', 'required|alpha_numeric');
+            $this->form_validation->set_rules('adresse', 'adresse', 'required|alpha_numeric');
 
             if ($this->form_validation->run()) {
-                $this->load->model('user_model');
+                $this->load->model('Stagiaire_model');
                 $post['password'] = $this->auth->crypt_password($post['password']);
-                $post['type'] = 'user';
-                $this->user_model->add($post);
+                $this->stagiaire_model->add($post);
 
-                redirect(site_url("Display/connection"));
+                redirect(site_url("Stagiaire/connection"));
             }
         }
 
-        $this->load->view('inscription', $data);
-        $this->load->view('footer');
+        $this->load->view('inscription/stagiaire', $data);
+        $this->load->view('body/footer');
     }
 
     public function connection()
