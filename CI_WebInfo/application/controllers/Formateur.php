@@ -14,4 +14,22 @@ class Formateur extends CI_Controller {
         $this->load->view('index');
         $this->load->view('footer');
     }
+
+    public function search()
+    {
+        $data['pageName'] = 'index';
+
+        $this->load->view('header', $data);
+        $this->load->view('search/formateur');
+        $this->load->view('footer');
+    }
+
+    public function account()
+    {
+        $data['pageName'] = 'index';
+
+        $this->load->view('header', $data);
+        $this->load->view('compte/formateur');
+        $this->load->view('footer');
+    }
 }

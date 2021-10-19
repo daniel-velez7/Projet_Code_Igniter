@@ -1,7 +1,7 @@
 <div class="d-flex w-100 justify-content-center">
     <div class="d-flex flex-column align-items-center justify-content-center body-setup">
         <h5 class="body-title">Bienvenue sur WebInfo</h5>
-        <img class="body-image" src="<?= base_url("assets/images/acceuil_photo.jpg"); ?>" alt="travailleur">
+        <img class="body-image" src="images/acceuil_photo.jpg" alt="travailleur">
         <p class="body-para">
             Ici même vous pouvez trouver la formation<br>
             de vos rêves, gagner en compétences pour<br>

@@ -10,7 +10,7 @@ class Stagiaire extends CI_Controller {
 
         $data['pageName'] = 'index';
 
-        $this->load->view('header', $data);
+        $this->load->view('header_connected', $data);
         $this->load->view('index');
         $this->load->view('footer');
     }
