@@ -123,7 +123,7 @@ CREATE TABLE p3_g1_validation_stagiaire_formation (
 
 
 INSERT INTO p3_g1_formateur (nom, prenom, cv, photo, email, mdp) VALUES 
-('Nicolas', 'plet', 'assets/upload/cv_01.pdf', 'assets/upload/photo_profils_1.png', 'n.plet78@gmail.com', Blowfish('123')),
+('Nicolas', 'plet', 'assets/upload/cv_01.pdf', 'assets/upload/photo_profils_1.png', 'n.plet78@gmail.com', MD5('123')),
 ('Pierre', 'tada', 'assets/upload/cv_02.pdf', 'assets/upload/photo_profils_2.png', 'pipi@gmail.com', MD5('123')),
 ('Nicole', 'mailinois', 'assets/upload/cv_03.pdf', 'assets/upload/photo_profils_3.png', 'pupu@gmail.com', MD5('123')),
 ('Bernard', 'Getto', 'assets/upload/cv_04.pdf', 'assets/upload/photo_profils_4.png', 'papa@gmail.com', MD5('123')),
