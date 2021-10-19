@@ -1,6 +1,6 @@
 <?php
 
-class Animation_Projet {
+class Animation_projet_model extends CI_Model {
 
     private $ref_id_intervenant;
     private $ref_id_projet;
@@ -31,6 +31,12 @@ class Animation_Projet {
     public function Initialize($array) {
         $this->ref_id_intervenant = $array['ref_id_intervenant'];
         $this->ref_id_projet = $array['ref_id_projet'];
+    }
+
+    public function add($data)
+    {
+        $this->load->database();
+        $this->db->insert('p3_g1_animation_projet', $data);
     }
 
 }

@@ -1,6 +1,6 @@
 <?php 
 
-class Specialisation_Formateur extends CI_Model {
+class Specialisation_formateur_model extends CI_Model {
 
    private $ref_id_formateur;
    private $ref_id_specialisation;
@@ -33,7 +33,11 @@ class Specialisation_Formateur extends CI_Model {
         $this->ref_id_specialisation = $array['ref_id_specialisation'];
     }
 
-   
+    public function add($data)
+    {
+        $this->load->database();
+        $this->db->insert('p3_g1_specialisation_formateur', $data);
+    }
 }
 
 ?>

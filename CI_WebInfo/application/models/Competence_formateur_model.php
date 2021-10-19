@@ -1,6 +1,6 @@
 <?php
 
-class Competence_formateur {
+class Competence_formateur_model extends CI_Model {
 
     private $ref_id_formateur;
     private $ref_id_competence;
@@ -29,6 +29,12 @@ class Competence_formateur {
     public function Initialize($array) {
         $this->ref_id_formateur = $array['ref_id_formateur'];
         $this->ref_id_competence = $array['ref_id_competence'];
+    }
+
+    public function add($data)
+    {
+        $this->load->database();
+        $this->db->insert('p3_g1_competence_formateur', $data);
     }
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-class Stagiaire
+class Stagiaire_model extends CI_Model
 {
 
     private $id;

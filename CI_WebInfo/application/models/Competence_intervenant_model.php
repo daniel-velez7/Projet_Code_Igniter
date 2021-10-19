@@ -1,6 +1,6 @@
 <?php
 
-class Competence_intervenant {
+class Competence_intervenant_model extends CI_Model {
 
     private $ref_id_intervenant;
     private $ref_id_competence;
@@ -30,6 +30,13 @@ class Competence_intervenant {
         $this->ref_id_intervenant = $array['ref_id_intervenant'];
         $this->ref_id_competence = $array['ref_id_competence'];
     }
+
+    public function add($data)
+    {
+        $this->load->database();
+        $this->db->insert('p3_g1_competence_intervenant', $data);
+    }
+
 }
 
 ?>

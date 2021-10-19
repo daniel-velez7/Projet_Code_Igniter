@@ -1,6 +1,6 @@
 <?php 
 
-class Participation_Formation extends CI_Model {
+class Participation_formation_model extends CI_Model {
 
     private $ref_id_stagiaire;
     private $ref_id_formation;
@@ -33,5 +33,10 @@ class Participation_Formation extends CI_Model {
         $this->ref_id_formation = $array['ref_id_formation'];
     }
 
+    public function add($data)
+    {
+        $this->load->database();
+        $this->db->insert('p3_g1_participation_formation', $data);
+    }
 }
 ?>

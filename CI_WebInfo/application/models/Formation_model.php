@@ -1,6 +1,6 @@
 <?php
 
-class Formation {
+class Formation_model extends CI_Model {
 
     private $id;
     private $titre;
@@ -85,6 +85,12 @@ class Formation {
         $this->date_debut = $array['date_debut'];
         $this->date_fin = $array['date_fin'];
         $this->ref_id_admin = $array['ref_id_admin'];
+    }
+
+    public function add($data)
+    {
+        $this->load->database();
+        $this->db->insert('p3_g1_formation', $data);
     }
 }
 

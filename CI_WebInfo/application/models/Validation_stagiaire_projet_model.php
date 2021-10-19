@@ -1,6 +1,6 @@
 <?php 
 
-class Validation_Stagiaire_Projet {
+class Validation_stagiaire_projet_model extends CI_Model {
 
    private $ref_id_stagiaire;
    private $ref_id_projet;
@@ -44,6 +44,11 @@ class Validation_Stagiaire_Projet {
         $this->motivation = $array['motivation'];
     }
 
+    public function add($data)
+    {
+        $this->load->database();
+        $this->db->insert('p3_g1_validation_stagiaire_projet', $data);
+    }
 
 }
 

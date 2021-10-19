@@ -1,6 +1,6 @@
 <?php
 
-class Administrateur extends CI_Model {
+class Administrateur_model extends CI_Model {
 
     private $id;
     private $nom;
@@ -85,6 +85,12 @@ class Administrateur extends CI_Model {
         $this->email = $array['email'];
         $this->mdp = $array['mdp'];
         $this->adresse = $array['adresse'];
+    }
+
+    public function add($data)
+    {
+        $this->load->database();
+        $this->db->insert('p3_g1_administrateur', $data);
     }
 
 }

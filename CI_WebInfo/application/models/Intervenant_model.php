@@ -1,6 +1,6 @@
 <?php
 
-class Intervenant {
+class Intervenant_model extends CI_Model {
 
     private $id;
     private $nom;
@@ -85,6 +85,12 @@ class Intervenant {
         $this->photo = $array['photo'];
         $this->email = $array['email'];
         $this->mdp = $array['mdp'];
+    }
+
+    public function add($data)
+    {
+        $this->load->database();
+        $this->db->insert('p3_g1_intervenant', $data);
     }
 }
 

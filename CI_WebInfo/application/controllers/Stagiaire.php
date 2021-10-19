@@ -10,9 +10,9 @@ class Stagiaire extends CI_Controller {
 
         $data['pageName'] = 'index';
 
-        $this->load->view('header_connected', $data);
-        $this->load->view('index');
-        $this->load->view('footer');
+        $this->load->view('body/header_connected', $data);
+        $this->load->view('body/body_connected');
+        $this->load->view('body/footer');
     }
 
     public function inscription()
@@ -31,8 +31,8 @@ class Stagiaire extends CI_Controller {
             $this->form_validation->set_rules('adresse', 'adresse', 'required|alpha_numeric');
 
             if ($this->form_validation->run()) {
-                $this->load->model('Stagiaire_model');
-                $post['password'] = $this->auth->crypt_password($post['password']);
+                $this->load->model('stagiaire_model');
+                $post['mdp'] = $this->auth->crypt_password($post['mdp']);
                 $this->stagiaire_model->add($post);
 
                 redirect(site_url("Stagiaire/connection"));
@@ -46,11 +46,10 @@ class Stagiaire extends CI_Controller {
     public function connection()
     {
         $data['pageName'] = 'connection';
-        $this->load->view('header_default', $data);
+        $this->load->view('body/header_default', $data);
 
         if ($this->input->post()) {
             $post = $this->input->post();
-            unset($post['btn_connection']);
 
             $this->form_validation->set_rules('email', 'email', 'required|valid_email');
             $this->form_validation->set_rules('password', 'password', 'required|alpha_numeric');
@@ -59,17 +58,23 @@ class Stagiaire extends CI_Controller {
                 $email = $this->input->post("email");
                 $password = $this->input->post("password");
 
-                if ($this->auth->login($email, $password, "user")) {
+                if ($this->auth->login($email, $password, "stagiaire")) {
                     $this->session->connected = true;
-                    $this->session->user_type = $this->session->user['type'];
-                    redirect(site_url("Display/index"));
+                    $this->session->user_type = 'stagiaire';
+                    redirect(site_url("Stagiaire/index"));
                 }
                 else {
                     echo 'Connection refusée , l\'adresse ou le mot de passe est incorrect';
                 }
             }
         }
-        $this->load->view('connection', $data);
-        $this->load->view('footer');
+        $this->load->view('connection/stagiaire', $data);
+        $this->load->view('body/footer');
+    }
+
+    public function deconnection()
+    {
+        $this->auth->logout(true);
+        redirect(site_url("Acceuil/index"));
     }
 }

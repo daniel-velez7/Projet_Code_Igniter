@@ -1,6 +1,6 @@
 <?php 
 
-class Projet extends CI_Model {
+class Projet_model extends CI_Model {
 
     private $id;
     private $nom;
@@ -63,6 +63,12 @@ class Projet extends CI_Model {
         $this->date_debut = $array['date_debut'];
         $this->date_fin = $array['date_fin'];
         $this->ref_id_admin = $array['ref_id_admin'];
+    }
+
+    public function add($data)
+    {
+        $this->load->database();
+        $this->db->insert('p3_g1_projet', $data);
     }
 
 }

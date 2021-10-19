@@ -18,37 +18,38 @@ class Intervenant extends CI_Controller {
     public function inscription()
     {
         $data['pageName'] = 'inscription';
-        $this->load->view('header_default', $data);
+        $this->load->view('body/header_default', $data);
 
         if ($this->input->post()) {
             $post = $this->input->post();
-            unset($post['btn_inscription']);
 
+            $this->form_validation->set_rules('nom', 'nom', 'required|alpha');
+            $this->form_validation->set_rules('prenom', 'prenom', 'required|alpha');
+            $this->form_validation->set_rules('cv', 'cv', 'required|alpha_numeric');
+            $this->form_validation->set_rules('photo', 'photo', 'required|alpha_numeric');
             $this->form_validation->set_rules('email', 'email', 'required|valid_email');
-            $this->form_validation->set_rules('password', 'password', 'required|alpha_numeric');
+            $this->form_validation->set_rules('mdp', 'mdp', 'required|alpha_numeric');
 
             if ($this->form_validation->run()) {
-                $this->load->model('user_model');
-                $post['password'] = $this->auth->crypt_password($post['password']);
-                $post['type'] = 'user';
-                $this->user_model->add($post);
+                $this->load->model('intervenant_model');
+                $post['mdp'] = $this->auth->crypt_password($post['mdp']);
+                $this->intervenant_model->add($post);
 
-                redirect(site_url("Display/connection"));
+                redirect(site_url("Intervenant/connection"));
             }
         }
 
-        $this->load->view('inscription', $data);
-        $this->load->view('footer');
+        $this->load->view('inscription/intervenant', $data);
+        $this->load->view('body/footer');
     }
 
     public function connection()
     {
         $data['pageName'] = 'connection';
-        $this->load->view('header_default', $data);
+        $this->load->view('body/header_default', $data);
 
         if ($this->input->post()) {
             $post = $this->input->post();
-            unset($post['btn_connection']);
 
             $this->form_validation->set_rules('email', 'email', 'required|valid_email');
             $this->form_validation->set_rules('password', 'password', 'required|alpha_numeric');
@@ -59,16 +60,16 @@ class Intervenant extends CI_Controller {
 
                 if ($this->auth->login($email, $password, "user")) {
                     $this->session->connected = true;
-                    $this->session->user_type = $this->session->user['type'];
-                    redirect(site_url("Display/index"));
+                    $this->session->user_type = 'intervenant';
+                    redirect(site_url("Intervenant/index"));
                 }
                 else {
                     echo 'Connection refusée , l\'adresse ou le mot de passe est incorrect';
                 }
             }
         }
-        $this->load->view('connection', $data);
-        $this->load->view('footer');
+        $this->load->view('connection/intervenant', $data);
+        $this->load->view('body/footer');
     }
 
     public function search(){
@@ -81,5 +82,11 @@ class Intervenant extends CI_Controller {
         $this->load->view('header_connected', $data);
         $this->load->view('search/intervenant');
         $this->load->view('footer');
+    }
+
+    public function deconnection()
+    {
+        $this->auth->logout(true);
+        redirect(site_url("Acceuil/index"));
     }
 }

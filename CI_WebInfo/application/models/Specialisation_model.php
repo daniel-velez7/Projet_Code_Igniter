@@ -1,6 +1,6 @@
 <?php 
 
-class Specialisation extends CI_Model{
+class Specialisation_model extends CI_Model{
 
     private $id;
     private $nom;
@@ -43,6 +43,11 @@ class Specialisation extends CI_Model{
         $this->id_competence = $array['ref_id_competence'];
     }
 
+    public function add($data)
+    {
+        $this->load->database();
+        $this->db->insert('p3_g1_specialisation', $data);
+    }
    
 }
 ?>
