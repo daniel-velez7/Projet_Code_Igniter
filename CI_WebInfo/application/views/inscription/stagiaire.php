@@ -25,7 +25,7 @@
             <label>Adresse</label>
             <input type="text" name="adresse" id="adresse">
         </div>
-        <button class='btn btn-success button_form' onclick='Inscription_Stagiaire()'>Valider l'inscription</button>
+        <a class="btn btn-success" href="<?= site_url("Stagiaire/inscription"); ?>"></a>
         <div id='status'></div>
     </div>
 </div>

@@ -25,7 +25,7 @@
             <label>Mot de passe</label>
             <input type="password" name="mdp" id="mdp">
         </div>
-        <button class='btn btn-success button_form' onclick='Inscription_Formateur()'>Valider l'inscription</button>
+        <a class="btn btn-success" href="<?= site_url("Formateur/inscription"); ?>"></a>
         <div id='status'></div>
     </div>
 </div>
