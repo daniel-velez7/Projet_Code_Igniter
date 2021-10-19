@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/Projet_Code_Igniter/CI_WebInfo/';
+// $config['base_url'] = 'http://localhost/CodeIgniter/Projet_Code_Igniter/CI_WebInfo/';
 
 /*
 |--------------------------------------------------------------------------
@@ -49,10 +50,28 @@ $config['index_page'] = 'index.php';
 */
 
 $config['auth'] = [
-    'user' => [
-        'table'     => 'users',
+    'stagiaire' => [
+        'table'     => 'p3_g1_stagiaire',
         'login'     => 'email',
-        'password'  => 'password',
+        'password'  => 'mdp',
+        'encoding'  => 'bcrypt'
+    ],
+    'formateur' => [
+        'table'     => 'p3_g1_formateur',
+        'login'     => 'email',
+        'password'  => 'mdp',
+        'encoding'  => 'bcrypt'
+    ],
+    'intervenant' => [
+        'table'     => 'p3_g1_intervenant',
+        'login'     => 'email',
+        'password'  => 'mdp',
+        'encoding'  => 'bcrypt'
+    ],
+    'administrateur' => [
+        'table'     => 'p3_g1_administrateur',
+        'login'     => 'email',
+        'password'  => 'mdp',
         'encoding'  => 'bcrypt'
     ]
 ];
