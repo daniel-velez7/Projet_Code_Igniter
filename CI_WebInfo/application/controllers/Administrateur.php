@@ -49,4 +49,17 @@ class Administrateur extends CI_Controller {
         $this->auth->logout(true);
         redirect(site_url("Acceuil/index"));
     }
+
+    public function compte()
+    {
+        if ($this->session->connected == false) {
+            redirect(site_url('Acceuil/connection'));
+        }
+
+        $data['pageName'] = 'compte';
+
+        $this->load->view('body/header_connected', $data);
+        $this->load->view('compte/administrateur');
+        $this->load->view('body/footer');
+    }
 }

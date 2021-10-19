@@ -95,4 +95,17 @@ class Formateur extends CI_Controller {
         $this->load->view('compte/formateur');
         $this->load->view('footer');
     }
+
+    public function compte()
+    {
+        if ($this->session->connected == false) {
+            redirect(site_url('Acceuil/connection'));
+        }
+
+        $data['pageName'] = 'compte';
+
+        $this->load->view('body/header_connected', $data);
+        $this->load->view('compte/formateur');
+        $this->load->view('body/footer');
+    }
 }
