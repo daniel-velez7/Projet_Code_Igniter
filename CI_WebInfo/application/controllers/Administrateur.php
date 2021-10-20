@@ -58,6 +58,7 @@ class Administrateur extends CI_Controller {
         }
 
         $data['pageName'] = 'compte';
+        $data['type'] = 'administrateur';
 
         $this->load->view('body/header_connected', $data);
         $this->load->view('compte/administrateur');
@@ -71,6 +72,7 @@ class Administrateur extends CI_Controller {
         }
 
         $data['pageName'] = 'admin';
+        $data['type'] = 'administrateur';
 
         $this->load->view('body/header_connected', $data);
         $this->load->view('admin/formateur');
@@ -84,6 +86,7 @@ class Administrateur extends CI_Controller {
         }
 
         $data['pageName'] = 'admin';
+        $data['type'] = 'administrateur';
 
         $this->load->view('body/header_connected', $data);
         $this->load->view('admin/intervenant');
@@ -97,6 +100,7 @@ class Administrateur extends CI_Controller {
         }
 
         $data['pageName'] = 'admin';
+        $data['type'] = 'administrateur';
 
         $this->load->view('body/header_connected', $data);
         $this->load->view('admin/stagiaire');
@@ -110,6 +114,7 @@ class Administrateur extends CI_Controller {
         }
 
         $data['pageName'] = 'admin';
+        $data['type'] = 'administrateur';
 
         $this->load->view('body/header_connected', $data);
         $this->load->view('admin/formation');
@@ -123,6 +128,7 @@ class Administrateur extends CI_Controller {
         }
 
         $data['pageName'] = 'admin';
+        $data['type'] = 'administrateur';
 
         $this->load->view('body/header_connected', $data);
         $this->load->view('admin/projet');
@@ -136,6 +142,7 @@ class Administrateur extends CI_Controller {
         }
 
         $data['pageName'] = 'admin';
+        $data['type'] = 'administrateur';
 
         $this->load->view('body/header_connected', $data);
         $this->load->view('admin/competence');
@@ -150,6 +157,7 @@ class Administrateur extends CI_Controller {
             }
     
             $data['pageName'] = 'admin';
+            $data['type'] = 'administrateur';
     
             $this->load->view('body/header_connected', $data);
             $this->load->view('admin/specialisation');
@@ -163,6 +171,7 @@ class Administrateur extends CI_Controller {
         }
 
         $data['pageName'] = 'admin';
+        $data['type'] = 'administrateur';
 
         $this->load->view('body/header_connected', $data);
         $this->load->view('admin/admission-demandes');
