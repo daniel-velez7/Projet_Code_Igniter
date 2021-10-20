@@ -129,7 +129,7 @@ class Stagiaire extends CI_Controller
 
         $this->load->view('body/header_connected', $data);
         $this->load->view('search/formation');
-        $this->load->view('bodyfooter');
+        $this->load->view('body/footer');
     }
 
     public function search_projet()
