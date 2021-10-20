@@ -10,9 +10,9 @@ class Intervenant extends CI_Controller {
 
         $data['pageName'] = 'index';
 
-        $this->load->view('header_connected', $data);
+        $this->load->view('body/header_connected', $data);
         $this->load->view('index');
-        $this->load->view('footer');
+        $this->load->view('body/footer');
     }
 
     public function inscription()
@@ -58,7 +58,7 @@ class Intervenant extends CI_Controller {
                 $email = $this->input->post("email");
                 $password = $this->input->post("password");
 
-                if ($this->auth->login($email, $password, "user")) {
+                if ($this->auth->login($email, $password, "intervenant")) {
                     $this->session->connected = true;
                     $this->session->user_type = 'intervenant';
                     redirect(site_url("Intervenant/index"));
