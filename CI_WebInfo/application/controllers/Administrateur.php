@@ -10,9 +10,9 @@ class Administrateur extends CI_Controller {
 
         $data['pageName'] = 'index';
 
-        $this->load->view('header_connected', $data);
+        $this->load->view('body/header_connected', $data);
         $this->load->view('body_connected');
-        $this->load->view('footer');
+        $this->load->view('body/footer');
     }
 
     public function connection()
@@ -30,7 +30,7 @@ class Administrateur extends CI_Controller {
                 $email = $this->input->post("email");
                 $password = $this->input->post("password");
 
-                if ($this->auth->login($email, $password, "user")) {
+                if ($this->auth->login($email, $password, "administrateur")) {
                     $this->session->connected = true;
                     $this->session->user_type = 'admin';
                     redirect(site_url("Administrateur/index"));

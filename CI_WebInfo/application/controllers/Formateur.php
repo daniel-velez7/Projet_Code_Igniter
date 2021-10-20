@@ -10,9 +10,9 @@ class Formateur extends CI_Controller {
 
         $data['pageName'] = 'index';
 
-        $this->load->view('header', $data);
+        $this->load->view('body/header', $data);
         $this->load->view('index');
-        $this->load->view('footer');
+        $this->load->view('body/footer');
     }
 
     public function inscription()
@@ -58,7 +58,7 @@ class Formateur extends CI_Controller {
                 $email = $this->input->post("email");
                 $password = $this->input->post("password");
 
-                if ($this->auth->login($email, $password, "user")) {
+                if ($this->auth->login($email, $password, "formateur")) {
                     $this->session->connected = true;
                     $this->session->user_type = 'formateur';
                     redirect(site_url("Formateur/index"));
@@ -131,7 +131,7 @@ class Formateur extends CI_Controller {
         $this->load->view('search/formation');
         $this->load->view('footer');
     }
-    
+
    public function profil()
     {
         if ($this->session->connected == false) {
