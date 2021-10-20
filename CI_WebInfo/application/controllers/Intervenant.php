@@ -116,4 +116,26 @@ class Intervenant extends CI_Controller {
        $this->load->view('compte/projet');
        $this->load->view('body/footer');
    }
+
+   public function search_projet()
+   {
+       $data['pageName'] = 'index';
+
+       $this->load->view('header', $data);
+       $this->load->view('search/projet');
+       $this->load->view('footer');
+   }
+
+   public function profil()
+    {
+        if ($this->session->connected == false) {
+            redirect(site_url('Acceuil/connection'));
+        }
+
+        $data['pageName'] = 'profil';
+
+        $this->load->view('body/header_connected', $data);
+        $this->load->view('profils/intervenant');
+        $this->load->view('body/footer');
+    }
 }

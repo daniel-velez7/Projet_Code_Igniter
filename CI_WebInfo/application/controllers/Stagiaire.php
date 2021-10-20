@@ -104,7 +104,7 @@ class Stagiaire extends CI_Controller {
         $this->load->view('compte/projet');
         $this->load->view('body/footer');
     }
-    
+
     public function compte_formation()
     {
         if ($this->session->connected == false) {
@@ -116,5 +116,23 @@ class Stagiaire extends CI_Controller {
         $this->load->view('body/header_connected', $data);
         $this->load->view('compte/formation');
         $this->load->view('body/footer');
+    }
+
+    public function search_formation()
+    {
+        $data['pageName'] = 'index';
+
+        $this->load->view('header', $data);
+        $this->load->view('search/formateur');
+        $this->load->view('footer');
+    }
+
+    public function search_projet()
+    {
+        $data['pageName'] = 'index';
+
+        $this->load->view('header', $data);
+        $this->load->view('search/formateur');
+        $this->load->view('footer');
     }
 }
