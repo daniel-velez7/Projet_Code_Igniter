@@ -9,7 +9,8 @@ class Administrateur extends CI_Controller {
         }
 
         $data['pageName'] = 'index';
-
+        $data['type'] = 'administrateur';
+        
         $this->load->view('body/header_connected', $data);
         $this->load->view('body/body_connected');
         $this->load->view('body/footer');

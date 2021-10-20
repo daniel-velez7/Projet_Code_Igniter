@@ -9,6 +9,7 @@ class Intervenant extends CI_Controller {
         }
 
         $data['pageName'] = 'index';
+        $data['type'] = 'intervenant';
 
         $this->load->view('body/header_connected', $data);
         $this->load->view('body/body_connected');
