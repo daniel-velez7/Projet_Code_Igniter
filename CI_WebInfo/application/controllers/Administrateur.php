@@ -11,7 +11,7 @@ class Administrateur extends CI_Controller {
         $data['pageName'] = 'index';
 
         $this->load->view('body/header_connected', $data);
-        $this->load->view('body_connected');
+        $this->load->view('body/body_connected');
         $this->load->view('body/footer');
     }
 
