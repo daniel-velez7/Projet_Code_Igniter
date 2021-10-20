@@ -33,7 +33,7 @@ class Administrateur extends CI_Controller {
 
                 if ($this->auth->login($email, $password, "administrateur")) {
                     $this->session->connected = true;
-                    $this->session->user_type = 'admin';
+                    $this->session->user_type = 'administrateur';
                     redirect(site_url("Administrateur/index"));
                 }
                 else {
