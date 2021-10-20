@@ -103,5 +103,17 @@ class Intervenant extends CI_Controller {
         $this->load->view('body/footer');
     }
 
-   
+
+   public function compte_projet()
+   {
+       if ($this->session->connected == false) {
+           redirect(site_url('Acceuil/connection'));
+       }
+
+       $data['pageName'] = 'compte';
+
+       $this->load->view('body/header_connected', $data);
+       $this->load->view('compte/projet');
+       $this->load->view('body/footer');
+   }
 }
