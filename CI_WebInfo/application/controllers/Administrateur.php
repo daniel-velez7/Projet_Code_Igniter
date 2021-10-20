@@ -208,7 +208,7 @@ class Administrateur extends CI_Controller {
         $this->load->view('body/footer');
     }
 
-    public function search_projets()
+    public function search_projet()
     {
         $data['pageName'] = 'index';
         $data['type'] = 'administrateur';

@@ -79,13 +79,44 @@ class Formateur extends CI_Controller {
         redirect(site_url("Acceuil/index"));
     }
 
-    public function search()
+    public function search_formateur()
     {
         $data['pageName'] = 'index';
+        $data['type'] = 'formateur';
 
-        $this->load->view('header', $data);
+        $this->load->view('body/header_connected', $data);
         $this->load->view('search/formateur');
-        $this->load->view('footer');
+        $this->load->view('body/footer');
+    }
+
+    public function search_intervenant()
+    {
+        $data['pageName'] = 'index';
+        $data['type'] = 'formateur';
+
+        $this->load->view('body/header_connected', $data);
+        $this->load->view('search/intervenant');
+        $this->load->view('body/footer');
+    }
+
+    public function search_formation()
+    {
+        $data['pageName'] = 'index';
+        $data['type'] = 'formateur';
+
+        $this->load->view('body/header_connected', $data);
+        $this->load->view('search/formation');
+        $this->load->view('body/footer');
+    }
+
+    public function search_projet()
+    {
+        $data['pageName'] = 'index';
+        $data['type'] = 'formateur';
+
+        $this->load->view('body/header_connected', $data);
+        $this->load->view('search/projet');
+        $this->load->view('body/footer');
     }
 
     public function account()
@@ -124,14 +155,7 @@ class Formateur extends CI_Controller {
         $this->load->view('body/footer');
     }
 
-    public function search_formation()
-    {
-        $data['pageName'] = 'index';
-
-        $this->load->view('header', $data);
-        $this->load->view('search/formation');
-        $this->load->view('footer');
-    }
+   
 
    public function profil()
     {

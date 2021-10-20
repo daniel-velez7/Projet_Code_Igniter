@@ -73,15 +73,49 @@ class Intervenant extends CI_Controller {
         $this->load->view('body/footer');
     }
 
-    public function search(){
+    public function search_formateur(){
         if ($this->session->connected == false) {
             redirect(site_url('Acceuil/connection'));
         }
 
         $data['pageName'] = 'index';
+        $data['type'] = 'intervenant';
+
+        $this->load->view('header_connected', $data);
+        $this->load->view('search/formateur');
+        $this->load->view('footer');
+    }
+
+    public function search_intervenant(){
+        if ($this->session->connected == false) {
+            redirect(site_url('Acceuil/connection'));
+        }
+
+        $data['pageName'] = 'index';
+        $data['type'] = 'intervenant';
 
         $this->load->view('header_connected', $data);
         $this->load->view('search/intervenant');
+        $this->load->view('footer');
+    }
+
+    public function search_formation()
+    {
+        $data['pageName'] = 'index';
+        $data['type'] = 'intervenant';
+ 
+        $this->load->view('header', $data);
+        $this->load->view('search/formation');
+        $this->load->view('footer');
+    }
+
+    public function search_projet()
+    {
+        $data['pageName'] = 'index';
+        $data['type'] = 'intervenant';
+ 
+        $this->load->view('header', $data);
+        $this->load->view('search/projet');
         $this->load->view('footer');
     }
 
@@ -118,14 +152,7 @@ class Intervenant extends CI_Controller {
        $this->load->view('body/footer');
    }
 
-   public function search_projet()
-   {
-       $data['pageName'] = 'index';
-
-       $this->load->view('header', $data);
-       $this->load->view('search/projet');
-       $this->load->view('footer');
-   }
+  
 
    public function profil()
     {
