@@ -123,6 +123,15 @@ class Formateur extends CI_Controller {
         $this->load->view('body/footer');
     }
 
+    public function search_formation()
+    {
+        $data['pageName'] = 'index';
+
+        $this->load->view('header', $data);
+        $this->load->view('search/formation');
+        $this->load->view('footer');
+    }
+    
    public function profil()
     {
         if ($this->session->connected == false) {
