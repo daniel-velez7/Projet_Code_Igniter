@@ -62,4 +62,109 @@ class Administrateur extends CI_Controller {
         $this->load->view('compte/administrateur');
         $this->load->view('body/footer');
     }
+
+    public function edit_formateur()
+    {
+        if ($this->session->connected == false) {
+            redirect(site_url('Acceuil/connection'));
+        }
+
+        $data['pageName'] = 'admin';
+
+        $this->load->view('body/header_connected', $data);
+        $this->load->view('admin/formateur');
+        $this->load->view('body/footer');
+    }
+
+    public function edit_intervenant()
+    {
+        if ($this->session->connected == false) {
+            redirect(site_url('Acceuil/connection'));
+        }
+
+        $data['pageName'] = 'admin';
+
+        $this->load->view('body/header_connected', $data);
+        $this->load->view('admin/intervenant');
+        $this->load->view('body/footer');
+    }
+
+    public function edit_stagiaire()
+    {
+        if ($this->session->connected == false) {
+            redirect(site_url('Acceuil/connection'));
+        }
+
+        $data['pageName'] = 'admin';
+
+        $this->load->view('body/header_connected', $data);
+        $this->load->view('admin/stagiaire');
+        $this->load->view('body/footer');
+    }
+
+    public function edit_formation()
+    {
+        if ($this->session->connected == false) {
+            redirect(site_url('Acceuil/connection'));
+        }
+
+        $data['pageName'] = 'admin';
+
+        $this->load->view('body/header_connected', $data);
+        $this->load->view('admin/formation');
+        $this->load->view('body/footer');
+    }
+
+    public function edit_projet()
+    {
+        if ($this->session->connected == false) {
+            redirect(site_url('Acceuil/connection'));
+        }
+
+        $data['pageName'] = 'admin';
+
+        $this->load->view('body/header_connected', $data);
+        $this->load->view('admin/projet');
+        $this->load->view('body/footer');
+    }
+
+    public function edit_competence()
+    {
+        if ($this->session->connected == false) {
+            redirect(site_url('Acceuil/connection'));
+        }
+
+        $data['pageName'] = 'admin';
+
+        $this->load->view('body/header_connected', $data);
+        $this->load->view('admin/competence');
+        $this->load->view('body/footer');
+    }
+
+
+        public function edit_specialisation()
+        {
+            if ($this->session->connected == false) {
+                redirect(site_url('Acceuil/connection'));
+            }
+    
+            $data['pageName'] = 'admin';
+    
+            $this->load->view('body/header_connected', $data);
+            $this->load->view('admin/specialisation');
+            $this->load->view('body/footer');
+        }
+
+        public function edit_admission()
+    {
+        if ($this->session->connected == false) {
+            redirect(site_url('Acceuil/connection'));
+        }
+
+        $data['pageName'] = 'admin';
+
+        $this->load->view('body/header_connected', $data);
+        $this->load->view('admin/admission-demandes');
+        $this->load->view('body/footer');
+    }
 }

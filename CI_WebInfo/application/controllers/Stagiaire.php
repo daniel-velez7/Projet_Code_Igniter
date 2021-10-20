@@ -91,16 +91,5 @@ class Stagiaire extends CI_Controller {
         $this->load->view('body/footer');
     }
 
-    public function edit()
-    {
-        if ($this->session->connected == false) {
-            redirect(site_url('Acceuil/connection'));
-        }
-
-        $data['pageName'] = 'admin';
-
-        $this->load->view('body/header_connected', $data);
-        $this->load->view('admin/stagiaire');
-        $this->load->view('body/footer');
-    }
+    
 }
