@@ -10,7 +10,7 @@ class Formateur extends CI_Controller {
 
         $data['pageName'] = 'index';
 
-        $this->load->view('body/header', $data);
+        $this->load->view('body/header_connected', $data);
         $this->load->view('index');
         $this->load->view('body/footer');
     }
