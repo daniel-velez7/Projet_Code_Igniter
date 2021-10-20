@@ -126,7 +126,7 @@ class Stagiaire extends CI_Controller
         $data['pageName'] = 'index';
 
         $this->load->view('header', $data);
-        $this->load->view('search/formateur');
+        $this->load->view('search/formation');
         $this->load->view('footer');
     }
 
@@ -135,7 +135,7 @@ class Stagiaire extends CI_Controller
         $data['pageName'] = 'index';
 
         $this->load->view('header', $data);
-        $this->load->view('search/formateur');
+        $this->load->view('search/projet');
         $this->load->view('footer');
     }
 }
