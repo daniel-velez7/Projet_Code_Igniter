@@ -81,9 +81,9 @@ class Intervenant extends CI_Controller {
         $data['pageName'] = 'index';
         $data['type'] = 'intervenant';
 
-        $this->load->view('header_connected', $data);
+        $this->load->view('body/header_connected', $data);
         $this->load->view('search/formateur');
-        $this->load->view('footer');
+        $this->load->view('body/footer');
     }
 
     public function search_intervenant(){
@@ -94,9 +94,9 @@ class Intervenant extends CI_Controller {
         $data['pageName'] = 'index';
         $data['type'] = 'intervenant';
 
-        $this->load->view('header_connected', $data);
+        $this->load->view('body/header_connected', $data);
         $this->load->view('search/intervenant');
-        $this->load->view('footer');
+        $this->load->view('body/footer');
     }
 
     public function search_formation()
@@ -104,9 +104,9 @@ class Intervenant extends CI_Controller {
         $data['pageName'] = 'index';
         $data['type'] = 'intervenant';
  
-        $this->load->view('header', $data);
+        $this->load->view('body/header_connected', $data);
         $this->load->view('search/formation');
-        $this->load->view('footer');
+        $this->load->view('body/footer');
     }
 
     public function search_projet()
@@ -114,9 +114,9 @@ class Intervenant extends CI_Controller {
         $data['pageName'] = 'index';
         $data['type'] = 'intervenant';
  
-        $this->load->view('header', $data);
+        $this->load->view('body/header_connected', $data);
         $this->load->view('search/projet');
-        $this->load->view('footer');
+        $this->load->view('body/footer');
     }
 
     public function deconnection()
