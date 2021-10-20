@@ -177,4 +177,44 @@ class Administrateur extends CI_Controller {
         $this->load->view('admin/admission-demandes');
         $this->load->view('body/footer');
     }
+
+    public function search_formateur()
+    {
+        $data['pageName'] = 'index';
+        $data['type'] = 'administrateur';
+
+        $this->load->view('body/header_connected', $data);
+        $this->load->view('search/formateur');
+        $this->load->view('body/footer');
+    }
+
+    public function search_intervenant()
+    {
+        $data['pageName'] = 'index';
+        $data['type'] = 'administrateur';
+
+        $this->load->view('body/header_connected', $data);
+        $this->load->view('search/intervenant');
+        $this->load->view('body/footer');
+    }
+
+    public function search_formation()
+    {
+        $data['pageName'] = 'index';
+        $data['type'] = 'administrateur';
+
+        $this->load->view('body/header_connected', $data);
+        $this->load->view('search/formation');
+        $this->load->view('body/footer');
+    }
+
+    public function search_projets()
+    {
+        $data['pageName'] = 'index';
+        $data['type'] = 'administrateur';
+
+        $this->load->view('body/header_connected', $data);
+        $this->load->view('search/projet');
+        $this->load->view('body/footer');
+    }
 }
