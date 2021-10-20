@@ -102,4 +102,17 @@ class Intervenant extends CI_Controller {
         $this->load->view('compte/intervenant');
         $this->load->view('body/footer');
     }
+
+    public function edit()
+    {
+        if ($this->session->connected == false) {
+            redirect(site_url('Acceuil/connection'));
+        }
+
+        $data['pageName'] = 'admin';
+
+        $this->load->view('body/header_connected', $data);
+        $this->load->view('admin/intervenant');
+        $this->load->view('body/footer');
+    }
 }
