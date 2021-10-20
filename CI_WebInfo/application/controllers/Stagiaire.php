@@ -102,6 +102,7 @@ class Stagiaire extends CI_Controller
         }
 
         $data['pageName'] = 'compte';
+        
 
         $this->load->view('body/header_connected', $data);
         $this->load->view('compte/projet');
@@ -124,18 +125,38 @@ class Stagiaire extends CI_Controller
     public function search_formation()
     {
         $data['pageName'] = 'index';
+        $data['type'] = 'intervenant';
 
-        $this->load->view('header', $data);
+        $this->load->view('body/header_connected', $data);
         $this->load->view('search/formation');
-        $this->load->view('footer');
+        $this->load->view('bodyfooter');
     }
 
     public function search_projet()
     {
         $data['pageName'] = 'index';
+        $data['type'] = 'intervenant';
 
-        $this->load->view('header', $data);
+        $this->load->view('body/header_connected', $data);
         $this->load->view('search/projet');
-        $this->load->view('footer');
+        $this->load->view('body/footer');
+    }
+    public function search_formateur()
+    {
+        $data['pageName'] = 'index';
+        $data['type'] = 'intervenant';
+
+        $this->load->view('body/header_connected', $data);
+        $this->load->view('search/formateur');
+        $this->load->view('body/footer');
+    }
+    public function search_intervenant()
+    {
+        $data['pageName'] = 'index';
+        $data['type'] = 'intervenant';
+
+        $this->load->view('body/header_connected', $data);
+        $this->load->view('search/intervenant');
+        $this->load->view('body/footer');
     }
 }
