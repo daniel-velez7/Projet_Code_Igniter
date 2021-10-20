@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?=$pageName?></title>
+    <title><?= $pageName ?></title>
 
     <!-- Lien vers boostrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous" defer></script>
@@ -71,25 +71,23 @@
 
             <?php
 
-            if (isset($type)) {
-                if ($type == 'administrateur') { ?>
-                    <div class="dropdown">
-                        <button class="btn btn-color dropdown-toggle mx-3" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                            Administration
-                        </button>
-                        <ul class="dropdown-menu absolute mx-3" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="<?= site_url("Administrateur/edit_formation") ?>">Editer formation</a></li>
-                            <li><a class="dropdown-item" href="<?= site_url("Administrateur/edit_projet") ?>">Editer projet</a></li>
-                            <li><a class="dropdown-item" href="<?= site_url("Administrateur/edit_stagiaire") ?>">Editer stagiaire</a></li>
-                            <li><a class="dropdown-item" href="<?= site_url("Administrateur/edit_formateur") ?>">Editer formateur</a></li>
-                            <li><a class="dropdown-item" href="<?= site_url("Administrateur/edit_intervenant") ?>">Editer intervenant</a></li>
-                            <li><a class="dropdown-item" href="<?= site_url("Administrateur/edit_competence") ?>">Editer competence</a></li>
-                            <li><a class="dropdown-item" href="<?= site_url("Administrateur/edit_specialisation") ?>">Editer spécialisation</a></li>
-                            <li><a class="dropdown-item" href="<?= site_url("Administrateur/edit_admission") ?>">Editer demande d'admission</a></li>
-                        </ul>
-                    </div>
+            if ($type == 'administrateur') { ?>
+                <div class="dropdown">
+                    <button class="btn btn-color dropdown-toggle mx-3" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Administration
+                    </button>
+                    <ul class="dropdown-menu absolute mx-3" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="<?= site_url("Administrateur/edit_formation") ?>">Editer formation</a></li>
+                        <li><a class="dropdown-item" href="<?= site_url("Administrateur/edit_projet") ?>">Editer projet</a></li>
+                        <li><a class="dropdown-item" href="<?= site_url("Administrateur/edit_stagiaire") ?>">Editer stagiaire</a></li>
+                        <li><a class="dropdown-item" href="<?= site_url("Administrateur/edit_formateur") ?>">Editer formateur</a></li>
+                        <li><a class="dropdown-item" href="<?= site_url("Administrateur/edit_intervenant") ?>">Editer intervenant</a></li>
+                        <li><a class="dropdown-item" href="<?= site_url("Administrateur/edit_competence") ?>">Editer competence</a></li>
+                        <li><a class="dropdown-item" href="<?= site_url("Administrateur/edit_specialisation") ?>">Editer spécialisation</a></li>
+                        <li><a class="dropdown-item" href="<?= site_url("Administrateur/edit_admission") ?>">Editer demande d'admission</a></li>
+                    </ul>
+                </div>
             <?php }
-            }
 
             ?>
 
@@ -114,6 +112,10 @@
                         <li><a class='dropdown-item' href='<?= site_url("Stagiaire/compte_projet") ?>'>Mes Projets</a></li>
                         <li><a class='dropdown-item' href='<?= site_url("Stagiaire/compte_formation") ?>'>Mes formations</a></li>
                         <li><a class="dropdown-item" href="<?= site_url("Stagiaire/deconnection") ?>">Déconnection</a></li>
+                    <?php }
+                    if ($type == 'administrateur') { ?>
+                        <li><a class="dropdown-item" href="<?= site_url("Administrateur/compte") ?>">Mon Compte</a></li>
+                        <li><a class="dropdown-item" href="<?= site_url("Administrateur/deconnection") ?>">Déconnection</a></li>
                     <?php }
                     ?>
                 </ul>
