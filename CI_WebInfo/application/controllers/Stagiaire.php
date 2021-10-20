@@ -125,7 +125,7 @@ class Stagiaire extends CI_Controller
     public function search_formation()
     {
         $data['pageName'] = 'index';
-        $data['type'] = 'intervenant';
+        $data['type'] = 'stagiaire';
 
         $this->load->view('body/header_connected', $data);
         $this->load->view('search/formation');
@@ -135,7 +135,7 @@ class Stagiaire extends CI_Controller
     public function search_projet()
     {
         $data['pageName'] = 'index';
-        $data['type'] = 'intervenant';
+        $data['type'] = 'stagiaire';
 
         $this->load->view('body/header_connected', $data);
         $this->load->view('search/projet');
@@ -144,7 +144,7 @@ class Stagiaire extends CI_Controller
     public function search_formateur()
     {
         $data['pageName'] = 'index';
-        $data['type'] = 'intervenant';
+        $data['type'] = 'stagiaire';
 
         $this->load->view('body/header_connected', $data);
         $this->load->view('search/formateur');
@@ -153,7 +153,7 @@ class Stagiaire extends CI_Controller
     public function search_intervenant()
     {
         $data['pageName'] = 'index';
-        $data['type'] = 'intervenant';
+        $data['type'] = 'stagiaire';
 
         $this->load->view('body/header_connected', $data);
         $this->load->view('search/intervenant');
