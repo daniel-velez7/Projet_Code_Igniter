@@ -1,7 +1,10 @@
-<?php 
+<?php
 
-class Stagiaire extends CI_Controller {
-    
+class Stagiaire extends CI_Controller
+{
+
+    private $stagiaire_model;
+
     public function index()
     {
         if ($this->session->connected == false) {
@@ -9,6 +12,7 @@ class Stagiaire extends CI_Controller {
         }
 
         $data['pageName'] = 'index';
+        $data['type'] = 'stagiaire';
 
         $this->load->view('body/header_connected', $data);
         $this->load->view('body/body_connected');
@@ -62,8 +66,7 @@ class Stagiaire extends CI_Controller {
                     $this->session->connected = true;
                     $this->session->user_type = 'stagiaire';
                     redirect(site_url("Stagiaire/index"));
-                }
-                else {
+                } else {
                     echo 'Connection refusée , l\'adresse ou le mot de passe est incorrect';
                 }
             }
@@ -85,12 +88,12 @@ class Stagiaire extends CI_Controller {
         }
 
         $data['pageName'] = 'compte';
-
         $this->load->view('body/header_connected', $data);
+        
+        $data['id'] = $this->session->user['id'];
         $this->load->view('compte/stagiaire');
         $this->load->view('body/footer');
     }
-
 
     public function compte_projet()
     {
