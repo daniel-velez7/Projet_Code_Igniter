@@ -10,15 +10,6 @@ class Intervenant_model extends CI_Model {
     private $email;
     private $mdp;
 
-    public function __construct($nom, $prenom, $cv, $photo, $email, $mdp) {
-        $this->nom = $nom;
-        $this->prenom = $prenom;
-        $this->cv = $cv;
-        $this->photo = $photo;
-        $this->email = $email;
-        $this->mdp = $mdp;
-    }
-
     public function set_id($newid) {
         $this->id = $newid;
     }

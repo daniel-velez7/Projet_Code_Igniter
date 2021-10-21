@@ -6,12 +6,6 @@ class Validation_stagiaire_projet_model extends CI_Model {
    private $ref_id_projet;
    private $motivation;
 
-    public function __constructor($ref_id_stagiaire, $ref_id_projet, $motivation) {
-        $this->ref_id_stagiaire = $ref_id_stagiaire;
-        $this->ref_id_projet = $ref_id_projet;
-        $this->motivation = $motivation;
-    }
-
     public function set_ref_id_stagiaire($newRef_id_stagiaire) {
         $this->ref_id_stagiaire = $newRef_id_stagiaire;
     }

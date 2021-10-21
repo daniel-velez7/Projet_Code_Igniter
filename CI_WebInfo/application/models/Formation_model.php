@@ -10,15 +10,6 @@ class Formation_model extends CI_Model {
     private $date_fin;
     private $ref_id_admin;
 
-    public function __construct($titre, $description, $nb_heure, $date_debut, $date_fin, $ref_id_admin) {
-        $this->titre = $titre;
-        $this->description = $description;
-        $this->nb_heure = $nb_heure;
-        $this->date_debut = $date_debut;
-        $this->date_fin = $date_fin;
-        $this->ref_id_admin = $ref_id_admin;
-    }
-
     public function set_id($newid) {
         $this->id = $newid;
     }

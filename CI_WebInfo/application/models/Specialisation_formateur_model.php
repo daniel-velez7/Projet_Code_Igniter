@@ -5,11 +5,6 @@ class Specialisation_formateur_model extends CI_Model {
    private $ref_id_formateur;
    private $ref_id_specialisation;
 
-    public function __constructor($ref_id_formateur, $ref_id_specialisation) {
-        $this->ref_id_formateur = $ref_id_formateur;
-        $this->ref_id_specialisation = $ref_id_specialisation;
-    }
-
     public function set_ref_id_formateur($newRef_id_formateur) {
         $this->ref_id_formateur = $newRef_id_formateur;
     }

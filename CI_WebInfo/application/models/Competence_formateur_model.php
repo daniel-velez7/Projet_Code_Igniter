@@ -5,11 +5,6 @@ class Competence_formateur_model extends CI_Model {
     private $ref_id_formateur;
     private $ref_id_competence;
 
-    public function constructor($ref_id_formateur, $ref_id_competence) {
-        $this->ref_id_formateur = $ref_id_formateur;
-        $this->ref_id_competence = $ref_id_competence;
-    }
-
     public function set_ref_id_formateur($newRef_id_formateur) {
         $this->ref_id_formateur = $newRef_id_formateur;
     }

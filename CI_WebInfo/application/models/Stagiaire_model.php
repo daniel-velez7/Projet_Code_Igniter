@@ -11,16 +11,6 @@ class Stagiaire_model extends CI_Model
     private $mdp;
     private $adresse;
 
-    public function __constructor($nom, $prenom, $telephone, $email, $mdp, $adresse)
-    {
-        $this->nom = $nom;
-        $this->prenom = $prenom;
-        $this->telephone = $telephone;
-        $this->email = $email;
-        $this->mdp = $mdp;
-        $this->adresse = $adresse;
-    }
-
     public function set_id($newid)
     {
         $this->id = $newid;

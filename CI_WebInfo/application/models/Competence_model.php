@@ -5,10 +5,6 @@ class Competence_model extends CI_Model {
     private $id;
     private $nom;
 
-    public function constructor($nom) {
-        $this->nom = $nom;
-    }
-
     public function set_id($newid) {
         $this->id = $newid;
     }

@@ -5,11 +5,6 @@ class Animation_projet_model extends CI_Model {
     private $ref_id_intervenant;
     private $ref_id_projet;
 
-    public function constructor($ref_id_intervenant, $ref_id_projet) {
-        $this->ref_id_intervenant = $ref_id_intervenant;
-        $this->ref_id_projet = $ref_id_projet;
-    }
-
     public function set_ref_id_intervenant($newRef_id_intervenant) {
         $this->ref_id_intervenant = $newRef_id_intervenant;
     }

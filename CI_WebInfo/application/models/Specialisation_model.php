@@ -6,11 +6,6 @@ class Specialisation_model extends CI_Model{
     private $nom;
     private $id_competence;
 
-    public function __constructor($nom, $id_competence) {
-        $this->nom = $nom;
-        $this->id_competence = $id_competence;
-    }
-
     public function  set_id($newid) {
         $this->id = $newid;
     }

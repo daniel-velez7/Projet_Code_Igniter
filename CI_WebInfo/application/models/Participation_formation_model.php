@@ -5,11 +5,6 @@ class Participation_formation_model extends CI_Model {
     private $ref_id_stagiaire;
     private $ref_id_formation;
 
-   public function  __constructor($ref_id_stagiaire, $ref_id_formation) {
-        $this->ref_id_stagiaire = $ref_id_stagiaire;
-        $this->ref_id_formation = $ref_id_formation;
-    }
-
     public function set_ref_id_stagiaire($newRef_id_stagiaire) {
         $this->ref_id_stagiaire = $newRef_id_stagiaire;
     }

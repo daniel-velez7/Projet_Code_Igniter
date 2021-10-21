@@ -5,11 +5,6 @@ class Competence_intervenant_model extends CI_Model {
     private $ref_id_intervenant;
     private $ref_id_competence;
 
-    public function constructor($ref_id_intervenant, $ref_id_competence) {
-        $this->ref_id_intervenant = $ref_id_intervenant;
-        $this->ref_id_competence = $ref_id_competence;
-    }
-
     public function set_ref_id_intervenant($newRef_id_intervenant) {
         $this->ref_id_intervenant = $newRef_id_intervenant;
     }

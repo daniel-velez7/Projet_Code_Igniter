@@ -5,11 +5,6 @@ class Animation_formation_model extends CI_Model {
     private $ref_id_formateur;
     private $ref_id_formation;
 
-    public function constructor($ref_id_formateur, $ref_id_formation) {
-        $this->ref_id_formateur = $ref_id_formateur;
-        $this->ref_id_formation = $ref_id_formation;
-    }
-
     public function set_ref_id_formateur($newRef_id_formation) {
         $this->ref_id_formateur = $newRef_id_formation;
     }

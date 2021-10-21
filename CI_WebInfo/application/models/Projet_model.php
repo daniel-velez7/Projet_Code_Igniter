@@ -8,13 +8,6 @@ class Projet_model extends CI_Model {
     private $date_fin;
     private  $ref_id_admin;
 
-    private function __constructor($nom, $date_debut, $date_fin, $ref_id_admin) {
-        $this->nom = $nom;
-        $this->date_debut = $date_debut;
-        $this->date_fin = $date_fin;
-        $this->ref_id_admin = $ref_id_admin;
-    }
-
     private function set_id($newid) {
         $this->id = $newid;
     }
