@@ -148,7 +148,7 @@ class Intervenant extends CI_Controller
                 $post['mdp'] = $this->auth->crypt_password($post['mdp']);
                 $post['id'] = $this->session->user['id'];
 
-                $this->Intervenant_model->update($post, $this->session);
+                $this->Intervenant_model->update($post);
                 $this->session->user = $post;
                 $data['user'] = $this->session->user;
 

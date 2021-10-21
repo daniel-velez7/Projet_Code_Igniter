@@ -152,7 +152,7 @@ class Formateur extends CI_Controller {
                 $post['mdp'] = $this->auth->crypt_password($post['mdp']);
                 $post['id'] = $this->session->user['id'];
 
-                $this->Formateur_model->update($post, $this->session);
+                $this->Formateur_model->update($post);
                 $this->session->user = $post;
                 $data['user'] = $this->session->user;
 
