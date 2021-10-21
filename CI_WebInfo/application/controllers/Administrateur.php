@@ -61,7 +61,10 @@ class Administrateur extends CI_Controller {
         $data['type'] = 'administrateur';
 
         $this->load->view('body/header_connected', $data);
-        $this->load->view('compte/administrateur');
+
+        $data['user'] = $this->session->user;
+
+        $this->load->view('compte/administrateur',$data);
         $this->load->view('body/footer');
     }
 

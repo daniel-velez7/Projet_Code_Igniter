@@ -122,6 +122,7 @@ class Formateur extends CI_Controller {
     public function account()
     {
         $data['pageName'] = 'index';
+        $data['type'] = 'formateur';
 
         $this->load->view('header', $data);
         $this->load->view('compte/formateur');
@@ -135,9 +136,13 @@ class Formateur extends CI_Controller {
         }
 
         $data['pageName'] = 'compte';
+        $data['type'] = 'formateur';
 
         $this->load->view('body/header_connected', $data);
-        $this->load->view('compte/formateur');
+
+        $data['user'] = $this->session->user;
+
+        $this->load->view('compte/formateur', $data);
         $this->load->view('body/footer');
     }
 
@@ -149,6 +154,7 @@ class Formateur extends CI_Controller {
         }
 
         $data['pageName'] = 'compte';
+        $data['type'] = 'formateur';
 
         $this->load->view('body/header_connected', $data);
         $this->load->view('compte/formation');
@@ -164,6 +170,7 @@ class Formateur extends CI_Controller {
         }
 
         $data['pageName'] = 'profil';
+        $data['type'] = 'formateur';
 
         $this->load->view('body/header_connected', $data);
         $this->load->view('profils/formateur');
