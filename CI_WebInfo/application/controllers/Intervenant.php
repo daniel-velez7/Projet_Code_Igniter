@@ -132,6 +132,7 @@ class Intervenant extends CI_Controller {
         }
 
         $data['pageName'] = 'compte';
+        $data['type'] = 'intervenant';
 
         $this->load->view('body/header_connected', $data);
 
@@ -148,6 +149,7 @@ class Intervenant extends CI_Controller {
        }
 
        $data['pageName'] = 'compte';
+       $data['type'] = 'intervenant';
 
        $this->load->view('body/header_connected', $data);
        $this->load->view('compte/projet');
@@ -163,6 +165,7 @@ class Intervenant extends CI_Controller {
         }
 
         $data['pageName'] = 'profil';
+        $data['type'] = 'intervenant';
 
         $this->load->view('body/header_connected', $data);
         $this->load->view('profils/intervenant');
