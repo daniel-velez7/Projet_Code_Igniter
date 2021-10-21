@@ -134,6 +134,8 @@ class Intervenant extends CI_Controller {
         $data['pageName'] = 'compte';
 
         $this->load->view('body/header_connected', $data);
+
+        $data['user'] = $this->session->user;
         $this->load->view('compte/intervenant');
         $this->load->view('body/footer');
     }

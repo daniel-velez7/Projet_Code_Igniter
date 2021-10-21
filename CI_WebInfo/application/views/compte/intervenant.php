@@ -3,23 +3,23 @@
         <h5 class="form_title">Mon Profils</h5>
         <div class="form_item">
             <label>nom</label>
-            <input type="text" name="nom" id="nom">
+            <input type="text" name="nom" id="nom"  value="<?= $user['nom']?>">
         </div>
         <div class="form_item">
             <label>prénom</label>
-            <input type="text" name="prenom" id="prenom">
+            <input type="text" name="prenom" id="prenom"  value="<?= $user['prenom']?>">
         </div>
         <div class="form_item">
             <label>cv</label>
-            <input type="file" name="cv" id="cv">
+            <input type="file" name="cv" id="cv"  value="<?= $user['cv']?>">
         </div>
         <div class="form_item">
             <label>photo</label>
-            <input type="file" name="photo" id="photo">
+            <input type="file" name="photo" id="photo"  value="<?= $user['photo']?>">
         </div>
         <div class="form_item">
             <label>Email</label>
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email"  value="<?= $user['email']?>">
         </div>
         <div class="form_item">
             <label>Mot de passe</label>
