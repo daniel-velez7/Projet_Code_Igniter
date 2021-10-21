@@ -59,14 +59,40 @@ class Administrateur extends CI_Controller {
 
         $data['pageName'] = 'compte';
         $data['type'] = 'administrateur';
+        $data['user'] = $this->session->user;
 
         $this->load->view('body/header_connected', $data);
 
-        $data['user'] = $this->session->user;
+    
+        if ($this->input->post()) {
+            $post = $this->input->post();
+            if (isset($post['update'])) {
+                unset($post['update']);
+ 
+                $this->load->model('Administrateur_model');
+                $post['mdp'] = $this->auth->crypt_password($post['mdp']);
+                $post['id'] = $this->session->user['id'];
 
-        $this->load->view('compte/administrateur',$data);
+                $this->Administrateur_model->update($post, $this->session);
+                $this->session->user = $post;
+                $data['user'] = $this->session->user;
+
+                $this->load->view('compte/administrateur', $data);
+            } else if (isset($post['delete'])) {
+                unset($post['delete']);
+                $this->load->model('Administrateur_model');
+
+                $this->Administrateur_model->delete($this->session->user['id']);
+                redirect(site_url('Administrateur/deconnection'));
+            }
+        } else {
+            
+            $this->load->view('compte/administrateur', $data);
+        }
+
         $this->load->view('body/footer');
     }
+     
 
     public function edit_formateur()
     {

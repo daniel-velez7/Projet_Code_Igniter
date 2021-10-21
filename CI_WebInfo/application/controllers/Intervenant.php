@@ -1,7 +1,8 @@
-<?php 
+<?php
 
-class Intervenant extends CI_Controller {
-    
+class Intervenant extends CI_Controller
+{
+
     public function index()
     {
         if ($this->session->connected == false) {
@@ -63,8 +64,7 @@ class Intervenant extends CI_Controller {
                     $this->session->connected = true;
                     $this->session->user_type = 'intervenant';
                     redirect(site_url("Intervenant/index"));
-                }
-                else {
+                } else {
                     echo 'Connection refusée , l\'adresse ou le mot de passe est incorrect';
                 }
             }
@@ -73,7 +73,8 @@ class Intervenant extends CI_Controller {
         $this->load->view('body/footer');
     }
 
-    public function search_formateur(){
+    public function search_formateur()
+    {
         if ($this->session->connected == false) {
             redirect(site_url('Acceuil/connection'));
         }
@@ -86,7 +87,8 @@ class Intervenant extends CI_Controller {
         $this->load->view('body/footer');
     }
 
-    public function search_intervenant(){
+    public function search_intervenant()
+    {
         if ($this->session->connected == false) {
             redirect(site_url('Acceuil/connection'));
         }
@@ -103,7 +105,7 @@ class Intervenant extends CI_Controller {
     {
         $data['pageName'] = 'index';
         $data['type'] = 'intervenant';
- 
+
         $this->load->view('body/header_connected', $data);
         $this->load->view('search/formation');
         $this->load->view('body/footer');
@@ -113,7 +115,7 @@ class Intervenant extends CI_Controller {
     {
         $data['pageName'] = 'index';
         $data['type'] = 'intervenant';
- 
+
         $this->load->view('body/header_connected', $data);
         $this->load->view('search/projet');
         $this->load->view('body/footer');
@@ -133,32 +135,56 @@ class Intervenant extends CI_Controller {
 
         $data['pageName'] = 'compte';
         $data['type'] = 'intervenant';
+        $data['user'] = $this->session->user;
 
         $this->load->view('body/header_connected', $data);
 
-        $data['user'] = $this->session->user;
-        $this->load->view('compte/intervenant', $data);
+        if ($this->input->post()) {
+            $post = $this->input->post();
+            if (isset($post['update'])) {
+                unset($post['update']);
+
+                $this->load->model('Intervenant_model');
+                $post['mdp'] = $this->auth->crypt_password($post['mdp']);
+                $post['id'] = $this->session->user['id'];
+
+                $this->Intervenant_model->update($post, $this->session);
+                $this->session->user = $post;
+                $data['user'] = $this->session->user;
+
+                $this->load->view('compte/Intervenant', $data);
+            } else if (isset($post['delete'])) {
+                unset($post['delete']);
+                $this->load->model('Intervenant_model');
+
+                $this->Intervenant_model->delete($this->session->user['id']);
+                redirect(site_url('Intervenant/deconnection'));
+            }
+        } else {
+
+            $this->load->view('compte/intervenant', $data);
+        }
         $this->load->view('body/footer');
     }
 
 
-   public function compte_projet()
-   {
-       if ($this->session->connected == false) {
-           redirect(site_url('Acceuil/connection'));
-       }
+    public function compte_projet()
+    {
+        if ($this->session->connected == false) {
+            redirect(site_url('Acceuil/connection'));
+        }
 
-       $data['pageName'] = 'compte';
-       $data['type'] = 'intervenant';
+        $data['pageName'] = 'compte';
+        $data['type'] = 'intervenant';
 
-       $this->load->view('body/header_connected', $data);
-       $this->load->view('compte/projet');
-       $this->load->view('body/footer');
-   }
+        $this->load->view('body/header_connected', $data);
+        $this->load->view('compte/projet');
+        $this->load->view('body/footer');
+    }
 
-  
 
-   public function profil()
+
+    public function profil()
     {
         if ($this->session->connected == false) {
             redirect(site_url('Acceuil/connection'));
