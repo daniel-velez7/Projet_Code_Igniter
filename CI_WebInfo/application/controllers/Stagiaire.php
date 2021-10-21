@@ -90,8 +90,8 @@ class Stagiaire extends CI_Controller
         $data['pageName'] = 'compte';
         $this->load->view('body/header_connected', $data);
         
-        $data['id'] = $this->session->user['id'];
-        $this->load->view('compte/stagiaire');
+        $data['user'] = $this->session->user;
+        $this->load->view('compte/stagiaire', $data);
         $this->load->view('body/footer');
     }
 
