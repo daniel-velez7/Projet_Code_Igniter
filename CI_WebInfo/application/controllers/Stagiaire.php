@@ -170,16 +170,19 @@ class Stagiaire extends CI_Controller
         $this->load->view('search/projet');
         $this->load->view('body/footer');
     }
+
     public function search_formateur()
     {
         $data['pageName'] = 'index';
         $data['type'] = 'stagiaire';
+        $this->load->model('Formateur_model');
 
         $this->load->view('body/header_connected', $data);
-        $data['user'] = $this->session->user;
-        $this->load->view('search/formateur');
+        $data['list'] = $this->Formateur_model->select_all();
+        $this->load->view('search/formateur', $data);
         $this->load->view('body/footer');
     }
+    
     public function search_intervenant()
     {
         $data['pageName'] = 'index';

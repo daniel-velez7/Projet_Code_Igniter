@@ -78,6 +78,15 @@ class Formateur_model extends CI_Model {
         $this->mdp = $array['mdp'];
     }
 
+    public function select_all()
+    {
+        $this->load->database();
+        $this->db->select('*');
+        $this->db->from('p3_g1_formateur');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     public function add($data)
     {
         $this->load->database();
