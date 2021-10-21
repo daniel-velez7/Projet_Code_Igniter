@@ -3,7 +3,6 @@
 class Stagiaire extends CI_Controller
 {
 
-    private $stagiaire_model;
 
     public function index()
     {
