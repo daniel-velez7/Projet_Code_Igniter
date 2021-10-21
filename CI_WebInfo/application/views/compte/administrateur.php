@@ -1,5 +1,5 @@
 <div class="container_formulaire">
-    <div class="formulaire">
+<form class="formulaire" action="<?= site_url("Administrateur/compte"); ?>" method="POST">
         <h5 class="form_title">Mon Profils</h5>
         <div class="form_item">
             <label>nom</label>
@@ -26,11 +26,10 @@
             <input type="text" name="adresse" id="adresse" value="<?= $user['adresse']?>">
         </div>
         <div class="form_item">
-            <button class='btn btn-success button_form' onclick='Update_Administrateur()'>Modifier</button>
-            <button class='btn btn-danger button_form' onclick='Delete_Administrateur()'>Supprimer</button>
+            <button type='submit' class='btn btn-success button_form' name="update">Modifier</button>
+            <button type='submit' class='btn btn-danger button_form' name="delete">Supprimer</button>
         </div>
-        <div id='status'></div>
-    </div>
+    </form>
 </div>
 
 <script>

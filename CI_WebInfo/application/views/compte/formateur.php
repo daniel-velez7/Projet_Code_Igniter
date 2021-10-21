@@ -1,5 +1,5 @@
 <div class="container_formulaire">
-    <div class="formulaire">
+<form class="formulaire" action="<?= site_url("Formateur/compte"); ?>" method="POST">
         <h5 class="form_title">Mon Profils</h5>
         <div class="form_item">
             <label>nom</label>
@@ -26,11 +26,10 @@
             <input type="password" name="mdp" id="mdp">
         </div>
         <div class="form_item">
-            <button class='btn btn-success button_form' onclick='UpdateAccount_Formateur()'>Modifier</button>
-            <button class='btn btn-danger button_form' onclick='DeleteAccount_Formateur()'>Supprimer</button>
+            <button type='submit' class='btn btn-success button_form' name="update">Modifier</button>
+            <button type='submit' class='btn btn-danger button_form' name="delete">Supprimer</button>
         </div>
-        <div id='status'></div>
-    </div>
+    </form>
 </div>
 
 

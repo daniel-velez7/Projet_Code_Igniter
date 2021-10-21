@@ -137,12 +137,38 @@ class Formateur extends CI_Controller {
 
         $data['pageName'] = 'compte';
         $data['type'] = 'formateur';
+        $data['user'] = $this->session->user;
+
 
         $this->load->view('body/header_connected', $data);
 
-        $data['user'] = $this->session->user;
+      
+        if ($this->input->post()) {
+            $post = $this->input->post();
+            if (isset($post['update'])) {
+                unset($post['update']);
+ 
+                $this->load->model('Formateur_model');
+                $post['mdp'] = $this->auth->crypt_password($post['mdp']);
+                $post['id'] = $this->session->user['id'];
 
-        $this->load->view('compte/formateur', $data);
+                $this->Formateur_model->update($post);
+                $this->session->user = $post;
+                $data['user'] = $this->session->user;
+
+                $this->load->view('compte/formateur', $data);
+            } else if (isset($post['delete'])) {
+                unset($post['delete']);
+                $this->load->model('Formateur_model');
+
+                $this->Formateur_model->delete($this->session->user['id']);
+                redirect(site_url('Formateur/deconnection'));
+            }
+        } else {
+            
+            $this->load->view('compte/formateur', $data);
+        }
+
         $this->load->view('body/footer');
     }
 
