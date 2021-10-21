@@ -88,6 +88,8 @@ class Stagiaire extends CI_Controller
         }
 
         $data['pageName'] = 'compte';
+        $data['type'] = 'stagiaire';
+        
         $this->load->view('body/header_connected', $data);
         
         $data['user'] = $this->session->user;
@@ -102,6 +104,7 @@ class Stagiaire extends CI_Controller
         }
 
         $data['pageName'] = 'compte';
+        $data['type'] = 'stagiaire';
         
 
         $this->load->view('body/header_connected', $data);
@@ -116,6 +119,7 @@ class Stagiaire extends CI_Controller
         }
 
         $data['pageName'] = 'compte';
+        $data['type'] = 'stagiaire';
 
         $this->load->view('body/header_connected', $data);
         $this->load->view('compte/formation');
