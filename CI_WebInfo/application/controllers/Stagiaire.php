@@ -35,9 +35,9 @@ class Stagiaire extends CI_Controller
             $this->form_validation->set_rules('adresse', 'adresse', 'required|alpha_numeric');
 
             if ($this->form_validation->run()) {
-                $this->load->model('stagiaire_model');
+                $this->load->model('Stagiaire_model');
                 $post['mdp'] = $this->auth->crypt_password($post['mdp']);
-                $this->stagiaire_model->add($post);
+                $this->Stagiaire_model->add($post);
 
                 redirect(site_url("Stagiaire/connection"));
             }
@@ -89,11 +89,36 @@ class Stagiaire extends CI_Controller
 
         $data['pageName'] = 'compte';
         $data['type'] = 'stagiaire';
+        $data['user'] = $this->session->user;
 
         $this->load->view('body/header_connected', $data);
-        
-        $data['user'] = $this->session->user;
-        $this->load->view('compte/stagiaire', $data);
+
+        if ($this->input->post()) {
+            $post = $this->input->post();
+            if (isset($post['update'])) {
+                unset($post['update']);
+ 
+                $this->load->model('Stagiaire_model');
+                $post['mdp'] = $this->auth->crypt_password($post['mdp']);
+                $post['id'] = $this->session->user['id'];
+
+                $this->Stagiaire_model->update($post, $this->session);
+                $this->session->user = $post;
+                $data['user'] = $this->session->user;
+
+                $this->load->view('compte/stagiaire', $data);
+            } else if (isset($post['delete'])) {
+                unset($post['delete']);
+                $this->load->model('Stagiaire_model');
+
+                $this->Stagiaire_model->delete($this->session->user['id']);
+                redirect(site_url('Stagiaire/deconnection'));
+            }
+        } else {
+            
+            $this->load->view('compte/stagiaire', $data);
+        }
+
         $this->load->view('body/footer');
     }
 
@@ -105,7 +130,7 @@ class Stagiaire extends CI_Controller
 
         $data['pageName'] = 'compte';
         $data['type'] = 'stagiaire';
-        
+
 
         $this->load->view('body/header_connected', $data);
         $this->load->view('compte/projet');

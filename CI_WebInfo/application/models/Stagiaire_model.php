@@ -109,4 +109,19 @@ class Stagiaire_model extends CI_Model
         $this->load->database();
         $this->db->insert('p3_g1_stagiaire', $data);
     }
+
+    public function update($data)
+    {
+        $this->load->database();
+
+        $this->db->where('id', $data['id']);
+        $this->db->update('p3_g1_stagiaire', $data);
+    }
+
+    public function delete($id)
+    {
+        $this->load->database();
+        $this->db->where('id', $id);
+        $this->db->delete('p3_g1_stagiaire');
+    }
 }
