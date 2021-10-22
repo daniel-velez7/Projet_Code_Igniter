@@ -52,7 +52,7 @@
                         <?php
                         if ($type == 'formateur') {
                             echo "<li><a class='dropdown-item' href='" . site_url("Formateur/search_formation") . "'>Formations</a></li>";
-                            echo  "<li><a class='dropdown-item' href='" . site_url("Formateur/search_projet") . "'>Projets</a></li>";
+                            // echo  "<li><a class='dropdown-item' href='" . site_url("Formateur/search_projet") . "'>Projets</a></li>";
                             echo  "<li><a class='dropdown-item' href='" . site_url("Formateur/search_formateur") . "'>Formateurs</a></li>";
                             echo  "<li><a class='dropdown-item' href='" . site_url("Formateur/search_intervenant") . "'>Intervenants</a></li>";
                         }

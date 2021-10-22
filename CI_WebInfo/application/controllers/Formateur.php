@@ -115,22 +115,22 @@ class Formateur extends CI_Controller {
         $this->load->view('body/footer');
     }
 
-    public function search_projet()
-    {
-        $data['pageName'] = 'index';
-        $data['type'] = 'formateur';
-        $this->load->model('Projet_model');
+    // public function search_projet()
+    // {
+    //     $data['pageName'] = 'index';
+    //     $data['type'] = 'formateur';
 
-        $this->load->view('body/header_connected', $data);
-        $data['list'] = $this->Projet_model->select_all();
-        $this->load->view('search/projet', $data);
-        $this->load->view('body/footer');
-    }
+    //     $this->load->view('body/header_connected', $data);
+    //     $data['list'] = $this->
+    //     $this->load->view('search/projet', $data);
+    //     $this->load->view('body/footer');
+    // }
 
     public function account()
     {
         $data['pageName'] = 'index';
         $data['type'] = 'formateur';
+
 
         $this->load->view('header', $data);
         $this->load->view('compte/formateur');
