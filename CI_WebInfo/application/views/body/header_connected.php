@@ -52,12 +52,10 @@
                         <?php
                         if ($type == 'formateur') {
                             echo "<li><a class='dropdown-item' href='" . site_url("Formateur/search_formation") . "'>Formations</a></li>";
-                            // echo  "<li><a class='dropdown-item' href='" . site_url("Formateur/search_projet") . "'>Projets</a></li>";
                             echo  "<li><a class='dropdown-item' href='" . site_url("Formateur/search_formateur") . "'>Formateurs</a></li>";
                             echo  "<li><a class='dropdown-item' href='" . site_url("Formateur/search_intervenant") . "'>Intervenants</a></li>";
                         }
                         if ($type == 'intervenant') {
-                            // echo "<li><a class='dropdown-item' href='" . site_url("Intervenant/search_formation") . "'>Formations</a></li>";
                             echo "<li><a class='dropdown-item' href='" . site_url("Intervenant/search_projet") . "'>Projets</a></li>";
                             echo  "<li><a class='dropdown-item' href='" . site_url("Intervenant/search_formateur") . "'>Formateurs</a></li>";
                             echo  "<li><a class='dropdown-item' href='" . site_url("Intervenant/search_intervenant") . "'>Intervenants</a></li>";
@@ -69,8 +67,6 @@
                             echo  "<li><a class='dropdown-item' href='" . site_url("Stagiaire/search_intervenant") . "'>Intervenants</a></li>";
                         }
                         if ($type == 'administrateur') {
-                            echo "<li><a class='dropdown-item' href='" . site_url("Administrateur/search_formation") . "'>Formations</a></li>";
-                            echo "<li><a class='dropdown-item' href='" . site_url("Administrateur/search_projet") . "'>Projets</a></li>";
                             echo  "<li><a class='dropdown-item' href='" . site_url("Administrateur/search_formateur") . "'>Formateurs</a></li>";
                             echo  "<li><a class='dropdown-item' href='" . site_url("Administrateur/search_intervenant") . "'>Intervenants</a></li>";
                         }

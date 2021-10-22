@@ -105,17 +105,6 @@ class Intervenant extends CI_Controller
         $this->load->view('body/footer');
     }
 
-    public function search_formation()
-    {
-        $data['pageName'] = 'index';
-        $data['type'] = 'intervenant';
-        $this->load->model('Formation_model');
-
-        $this->load->view('body/header_connected', $data);
-        $data['list'] = $this->Formation_model->select_all();
-        $this->load->view('search/formation', $data);
-        $this->load->view('body/footer');
-    }
 
     public function search_projet()
     {
