@@ -37,13 +37,6 @@
          </div>
     </div>
     
-    <div class="container justify-content-center">
-        <div class="container mt-5 p-5" id='edit_parent'>
-            
-         </div>
-    </div>
-
-
 <script>
     DisplayTab_Formateur();
 </script>
