@@ -8,7 +8,7 @@
                     <h5 class="card-title"><?= $list[$i]->nom; ?></h5>
                     <div>Date debut: <?= $list[$i]->date_debut; ?></div>
                     <div>Date Fin: <?= $list[$i]->date_fin; ?></div>
-                    <a class="btn btn-primary" href="<?= site_url('profils/Projet&id='. $list[$i]->id); ?>">Voir Projet</a>
+                    <a class="btn btn-primary" href="<?= site_url('profils/Projet&id='. $list[$i]->id); ?>">S'inscrire</a>
                 </div>
             </div>
         <?php
