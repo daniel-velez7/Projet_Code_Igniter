@@ -78,6 +78,15 @@ class Formation_model extends CI_Model {
         $this->ref_id_admin = $array['ref_id_admin'];
     }
 
+    public function select_all()
+    {
+        $this->load->database();
+        $this->db->select('*');
+        $this->db->from('p3_g1_formation');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     public function add($data)
     {
         $this->load->database();

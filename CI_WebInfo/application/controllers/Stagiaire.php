@@ -154,9 +154,11 @@ class Stagiaire extends CI_Controller
     {
         $data['pageName'] = 'index';
         $data['type'] = 'stagiaire';
+        $this->load->model('Formation_model');
 
         $this->load->view('body/header_connected', $data);
-        $this->load->view('search/formation');
+        $data['list'] = $this->Formation_model->select_all();
+        $this->load->view('search/formation', $data);
         $this->load->view('body/footer');
     }
 
@@ -164,10 +166,11 @@ class Stagiaire extends CI_Controller
     {
         $data['pageName'] = 'index';
         $data['type'] = 'stagiaire';
+        $this->load->model('Projet_model');
 
         $this->load->view('body/header_connected', $data);
-        $data['user'] = $this->session->user;
-        $this->load->view('search/projet');
+        $data['list'] = $this->Projet_model->select_all();
+        $this->load->view('search/projet', $data);
         $this->load->view('body/footer');
     }
 
@@ -187,9 +190,11 @@ class Stagiaire extends CI_Controller
     {
         $data['pageName'] = 'index';
         $data['type'] = 'stagiaire';
+        $this->load->model('Intervenant_model');
 
         $this->load->view('body/header_connected', $data);
-        $this->load->view('search/intervenant');
+        $data['list'] = $this->Intervenant_model->select_all();
+        $this->load->view('search/intervenant', $data);
         $this->load->view('body/footer');
     }
 }
