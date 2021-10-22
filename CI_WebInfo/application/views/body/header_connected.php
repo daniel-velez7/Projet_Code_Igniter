@@ -40,9 +40,23 @@
     <nav class="navbar d-flex w-100 flex-row header">
         <div class="d-flex">
             <ul class="navbar-nav flex-row align-items-center">
-                <li class="nav-item mx-2"><a href="index.php"><img class="height_max" src="<?= base_url("assets/images/Webinfo_logo.png"); ?>" alt="logo_webinfo"></a></li>
+                <li class="nav-item mx-2"><img class="height_max" src="<?= base_url("assets/images/Webinfo_logo.png"); ?>" alt="logo_webinfo"></li>
+            </ul>
                 <ul class="navbar-nav">
-                    <li class="nav-item mx-2"><a class="btn btn-color mx-3" href='<?= site_url('Acceuil/index') ?>'>Acceuil</a></li>
+                    <?php
+                        if ($type == 'formateur') {
+                            echo "<li class='nav-item mx-2'><a class='btn btn-color mx-3' href='" . site_url("Formateur/index") . "'>Accueil</a></li>";
+                        }
+                        if ($type == 'intervenant') {
+                            echo "<li class='nav-item mx-2'><a class='btn btn-color mx-3' href='" . site_url("Intervenant/index") . "'>Accueil</a></li>";
+                        }
+                        if ($type == 'stagiaire') {
+                            echo "<li class='nav-item mx-2'><a class='btn btn-color mx-3' href='" . site_url("Stagiaire/index") . "'>Accueil</a></li>";
+                        }
+                        if ($type == 'administrateur') {
+                            echo "<li class='nav-item mx-2'><a class='btn btn-color mx-3' href='" . site_url("Administrateur/index") . "'>Accueil</a></li>";
+                        }
+                        ?>
                 </ul>
                 <div class="dropdown">
                     <button class="btn btn-color dropdown-toggle mx-3" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
