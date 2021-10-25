@@ -231,21 +231,28 @@ class Administrateur extends CI_Controller
         $list_stagiaire_projet = [];
         $list_formation = [];
         $list_projet = [];
+        $list_motivation_formation = [];
+        $list_motivation_projet = []; 
 
         for ($i = 0; $i < count($list_validation_formation); $i++) {
-            array_push($list_stagiaire_formation, $this->Stagiaire_model->select_by_id($list_validation_formation[$i]->ref_id_stagiaire));
-            array_push($list_formation, $this->Formation_model->select_by_id($list_validation_formation[$i]->ref_id_formation));
+            array_push($list_stagiaire_formation, $this->Stagiaire_model->select_by_id($list_validation_formation[$i]->ref_id_stagiaire)[0]);
+            array_push($list_formation, $this->Formation_model->select_by_id($list_validation_formation[$i]->ref_id_formation)[0]);
+            array_push($list_motivation_formation, $list_validation_formation[$i]->motivation);
         }
 
         for ($i = 0; $i < count($list_validation_projet); $i++) {
-            array_push($list_stagiaire_projet, $this->Stagiaire_model->select_by_id($list_validation_projet[$i]->ref_id_stagiaire));
-            array_push($list_projet, $this->Projet_model->select_by_id($list_validation_projet[$i]->ref_id_projet));
+            array_push($list_stagiaire_projet, $this->Stagiaire_model->select_by_id($list_validation_projet[$i]->ref_id_stagiaire)[0]);
+            array_push($list_projet, $this->Projet_model->select_by_id($list_validation_projet[$i]->ref_id_projet)[0]);
+            array_push($list_motivation_projet, $list_validation_projet[$i]->motivation);
         }
 
         $data['list_stagiaire_formation'] = $list_stagiaire_formation;
         $data['list_stagiaire_projet'] = $list_stagiaire_projet;
         $data['list_formation'] = $list_formation;
         $data['list_projet'] = $list_projet;
+        $data['list_motivation_formation'] = $list_motivation_formation;
+        $data['list_motivation_projet'] = $list_motivation_projet;
+
         $this->load->view('admin/admission-demandes', $data);
         $this->load->view('body/footer');
     }
