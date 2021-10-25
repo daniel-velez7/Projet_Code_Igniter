@@ -102,9 +102,11 @@ class Administrateur extends CI_Controller {
 
         $data['pageName'] = 'admin';
         $data['type'] = 'administrateur';
+        $this->load->model('Formateur_model');
 
         $this->load->view('body/header_connected', $data);
-        $this->load->view('admin/formateur');
+        $data['list'] = $this->Formateur_model->select_all();
+        $this->load->view('admin/formateur', $data);
         $this->load->view('body/footer');
     }
 
@@ -116,9 +118,11 @@ class Administrateur extends CI_Controller {
 
         $data['pageName'] = 'admin';
         $data['type'] = 'administrateur';
+        $this->load->model('Intervenant_model');
 
         $this->load->view('body/header_connected', $data);
-        $this->load->view('admin/intervenant');
+        $data['list'] = $this->Intervenant_model->select_all();
+        $this->load->view('admin/intervenant', $data);
         $this->load->view('body/footer');
     }
 
@@ -130,9 +134,11 @@ class Administrateur extends CI_Controller {
 
         $data['pageName'] = 'admin';
         $data['type'] = 'administrateur';
+        $this->load->model('Stagiaire_model');
 
         $this->load->view('body/header_connected', $data);
-        $this->load->view('admin/stagiaire');
+        $data['list'] = $this->Stagiaire_model->select_all();
+        $this->load->view('admin/stagiaire', $data);
         $this->load->view('body/footer');
     }
 
@@ -144,9 +150,11 @@ class Administrateur extends CI_Controller {
 
         $data['pageName'] = 'admin';
         $data['type'] = 'administrateur';
+        $this->load->model('Formation_model');
 
         $this->load->view('body/header_connected', $data);
-        $this->load->view('admin/formation');
+        $data['list'] = $this->Formation_model->select_all();
+        $this->load->view('admin/formation', $data);
         $this->load->view('body/footer');
     }
 
@@ -158,9 +166,12 @@ class Administrateur extends CI_Controller {
 
         $data['pageName'] = 'admin';
         $data['type'] = 'administrateur';
+        $this->load->model('Projet_model');
+
 
         $this->load->view('body/header_connected', $data);
-        $this->load->view('admin/projet');
+        $data['list'] = $this->Projet_model->select_all();
+        $this->load->view('admin/projet', $data);
         $this->load->view('body/footer');
     }
 
@@ -172,9 +183,11 @@ class Administrateur extends CI_Controller {
 
         $data['pageName'] = 'admin';
         $data['type'] = 'administrateur';
+        $this->load->model('Competence_model');
 
         $this->load->view('body/header_connected', $data);
-        $this->load->view('admin/competence');
+        $data['list'] = $this->Competence_model->select_all();
+        $this->load->view('admin/competence', $data);
         $this->load->view('body/footer');
     }
 
@@ -187,9 +200,11 @@ class Administrateur extends CI_Controller {
     
             $data['pageName'] = 'admin';
             $data['type'] = 'administrateur';
+            $this->load->model('Specialisation_model');
     
             $this->load->view('body/header_connected', $data);
-            $this->load->view('admin/specialisation');
+            $data['list'] = $this->Specialisation_model->select_all();
+            $this->load->view('admin/specialisation', $data);
             $this->load->view('body/footer');
         }
 
@@ -201,9 +216,13 @@ class Administrateur extends CI_Controller {
 
         $data['pageName'] = 'admin';
         $data['type'] = 'administrateur';
+        $this->load->model('Validation_stagiaire_formation_model');
+        $this->load->model('Validation_stagiaire_projet_model');
 
         $this->load->view('body/header_connected', $data);
-        $this->load->view('admin/admission-demandes');
+        $data['list'] = $this->Validation_stagiaire_formation_model->select_all();
+        $data['list'] = $this->Validation_stagiaire_projet_model->select_all();
+        $this->load->view('admin/admission-demandes', $data);
         $this->load->view('body/footer');
     }
 

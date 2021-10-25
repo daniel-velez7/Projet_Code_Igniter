@@ -38,6 +38,15 @@ class Specialisation_model extends CI_Model{
         $this->id_competence = $array['ref_id_competence'];
     }
 
+    public function select_all()
+    {
+        $this->load->database();
+        $this->db->select('*');
+        $this->db->from('p3_g1_specialisation');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     public function add($data)
     {
         $this->load->database();

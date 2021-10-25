@@ -94,6 +94,15 @@ class Stagiaire_model extends CI_Model
         $this->adresse = $array['adresse'];
     }
 
+    public function select_all()
+    {
+        $this->load->database();
+        $this->db->select('*');
+        $this->db->from('p3_g1_stagiaire');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     public function add($data)
     {
         $this->load->database();

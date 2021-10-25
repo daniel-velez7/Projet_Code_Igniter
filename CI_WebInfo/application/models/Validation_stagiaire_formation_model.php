@@ -38,6 +38,15 @@ class Validation_stagiaire_formation_model extends CI_Model {
         $this->motivation = $array['motivation'];
     }
 
+    public function select_all()
+    {
+        $this->load->database();
+        $this->db->select('*');
+        $this->db->from('p3_g1_validation_stagiaire_formation');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     public function add($data)
     {
         $this->load->database();

@@ -210,3 +210,10 @@ INSERT INTO p3_g1_formation (titre, description, nb_heure, date_debut, date_fin,
 ('Exercices AJAX', 'La magie opère !', '10', '2021-09-09', '2021-09-12', 1),
 ('Exercices HTML', 'Kalikoukou', '45', '2021-09-09', '2021-09-12', 1),
 ('Exercices CSS', 'La Forme les amis ?', '56', '2021-09-09', '2021-09-12', 1);
+
+INSERT INTO p3_g1_specialisation (nom, ref_id_competence) VALUES 
+('CSS', 1),
+('PHP', 2),
+('AJAX', 3),
+('HTML', 4),
+('SCSS', 5);
