@@ -211,6 +211,13 @@ INSERT INTO p3_g1_formation (titre, description, nb_heure, date_debut, date_fin,
 ('Exercices HTML', 'Kalikoukou', '45', '2021-09-09', '2021-09-12', 1),
 ('Exercices CSS', 'La Forme les amis ?', '56', '2021-09-09', '2021-09-12', 1);
 
+INSERT INTO p3_g1_competence (nom) VALUES 
+('Frontend'),
+('Backend'),
+('UX'),
+('UI'),
+('PHP');
+
 INSERT INTO p3_g1_specialisation (nom, ref_id_competence) VALUES 
 ('CSS', 1),
 ('PHP', 2),
