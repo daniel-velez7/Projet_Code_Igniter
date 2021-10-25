@@ -103,6 +103,16 @@ class Stagiaire_model extends CI_Model
         return $query->result();
     }
 
+    public function select_by_id($id) 
+    {
+        $this->load->database();
+        $this->db->where('id', $id);
+        $this->db->select('*');
+        $this->db->from('p3_g1_stagiaire');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     public function add($data)
     {
         $this->load->database();

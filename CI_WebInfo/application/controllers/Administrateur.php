@@ -1,7 +1,8 @@
-<?php 
+<?php
 
-class Administrateur extends CI_Controller {
-    
+class Administrateur extends CI_Controller
+{
+
     public function index()
     {
         if ($this->session->connected == false) {
@@ -10,7 +11,7 @@ class Administrateur extends CI_Controller {
 
         $data['pageName'] = 'index';
         $data['type'] = 'administrateur';
-        
+
         $this->load->view('body/header_connected', $data);
         $this->load->view('body/body_connected');
         $this->load->view('body/footer');
@@ -35,8 +36,7 @@ class Administrateur extends CI_Controller {
                     $this->session->connected = true;
                     $this->session->user_type = 'administrateur';
                     redirect(site_url("Administrateur/index"));
-                }
-                else {
+                } else {
                     echo 'Connection refusée , l\'adresse ou le mot de passe est incorrect';
                 }
             }
@@ -63,12 +63,12 @@ class Administrateur extends CI_Controller {
 
         $this->load->view('body/header_connected', $data);
 
-    
+
         if ($this->input->post()) {
             $post = $this->input->post();
             if (isset($post['update'])) {
                 unset($post['update']);
- 
+
                 $this->load->model('Administrateur_model');
                 $post['mdp'] = $this->auth->crypt_password($post['mdp']);
                 $post['id'] = $this->session->user['id'];
@@ -86,13 +86,13 @@ class Administrateur extends CI_Controller {
                 redirect(site_url('Administrateur/deconnection'));
             }
         } else {
-            
+
             $this->load->view('compte/administrateur', $data);
         }
 
         $this->load->view('body/footer');
     }
-     
+
 
     public function edit_formateur()
     {
@@ -192,23 +192,23 @@ class Administrateur extends CI_Controller {
     }
 
 
-        public function edit_specialisation()
-        {
-            if ($this->session->connected == false) {
-                redirect(site_url('Acceuil/connection'));
-            }
-    
-            $data['pageName'] = 'admin';
-            $data['type'] = 'administrateur';
-            $this->load->model('Specialisation_model');
-    
-            $this->load->view('body/header_connected', $data);
-            $data['list'] = $this->Specialisation_model->select_all();
-            $this->load->view('admin/specialisation', $data);
-            $this->load->view('body/footer');
+    public function edit_specialisation()
+    {
+        if ($this->session->connected == false) {
+            redirect(site_url('Acceuil/connection'));
         }
 
-        public function edit_admission()
+        $data['pageName'] = 'admin';
+        $data['type'] = 'administrateur';
+        $this->load->model('Specialisation_model');
+
+        $this->load->view('body/header_connected', $data);
+        $data['list'] = $this->Specialisation_model->select_all();
+        $this->load->view('admin/specialisation', $data);
+        $this->load->view('body/footer');
+    }
+
+    public function edit_admission()
     {
         if ($this->session->connected == false) {
             redirect(site_url('Acceuil/connection'));
@@ -218,10 +218,34 @@ class Administrateur extends CI_Controller {
         $data['type'] = 'administrateur';
         $this->load->model('Validation_stagiaire_formation_model');
         $this->load->model('Validation_stagiaire_projet_model');
+        $this->load->model('Stagiaire_model');
+        $this->load->model('Formation_model');
+        $this->load->model('Projet_model');
+
 
         $this->load->view('body/header_connected', $data);
-        $data['list'] = $this->Validation_stagiaire_formation_model->select_all();
-        $data['list'] = $this->Validation_stagiaire_projet_model->select_all();
+        $list_validation_formation = $this->Validation_stagiaire_formation_model->select_all();
+        $list_validation_projet = $this->Validation_stagiaire_projet_model->select_all();
+
+        $list_stagiaire_formation = [];
+        $list_stagiaire_projet = [];
+        $list_formation = [];
+        $list_projet = [];
+
+        for ($i = 0; $i < count($list_validation_formation); $i++) {
+            array_push($list_stagiaire_formation, $this->Stagiaire_model->select_by_id($list_validation_formation[$i]->ref_id_stagiaire));
+            array_push($list_formation, $this->Formation_model->select_by_id($list_validation_formation[$i]->ref_id_formation));
+        }
+
+        for ($i = 0; $i < count($list_validation_projet); $i++) {
+            array_push($list_stagiaire_projet, $this->Stagiaire_model->select_by_id($list_validation_projet[$i]->ref_id_stagiaire));
+            array_push($list_projet, $this->Projet_model->select_by_id($list_validation_projet[$i]->ref_id_projet));
+        }
+
+        $data['list_stagiaire_formation'] = $list_stagiaire_formation;
+        $data['list_stagiaire_projet'] = $list_stagiaire_projet;
+        $data['list_formation'] = $list_formation;
+        $data['list_projet'] = $list_projet;
         $this->load->view('admin/admission-demandes', $data);
         $this->load->view('body/footer');
     }
@@ -249,5 +273,4 @@ class Administrateur extends CI_Controller {
         $this->load->view('search/intervenant', $data);
         $this->load->view('body/footer');
     }
-
 }
