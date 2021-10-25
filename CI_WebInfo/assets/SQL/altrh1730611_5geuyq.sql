@@ -217,3 +217,17 @@ INSERT INTO p3_g1_specialisation (nom, ref_id_competence) VALUES
 ('AJAX', 3),
 ('HTML', 4),
 ('SCSS', 5);
+
+INSERT INTO p3_g1_validation_stagiaire_formation (ref_id_stagiaire, ref_id_formation, motivation) VALUES 
+(1, 1, 'je veux coder '),
+(2, 2, 'je suis motive'),
+(3, 3, 'je veux apprendre'),
+(4, 4, 'je veux coder fort'),
+(5, 5, 'je suis tres excited comme on dit aux states');
+
+INSERT INTO p3_g1_validation_stagiaire_projet (ref_id_stagiaire, ref_id_projet, motivation) VALUES 
+(1, 1, 'je veux creer un site '), 
+(2, 2, 'je suis vendre des trucs sur internet'), 
+(3, 3, 'je veux faire un site e commerce'), 
+(4, 4, 'je veux coder fort'),
+ (5, 5, 'je suis tres excited comme on dit aux states');
